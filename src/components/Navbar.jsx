@@ -1,22 +1,32 @@
 import React, { useState } from "react";
-import burger from "../assets/burger-menu.svg";
+import { FaBars } from "react-icons/fa";
 
 const Navbar = () => {
   const [expand, setExpand] = useState(false);
+
   return (
-    <nav className="bg-gray-800 text-white p-4 sticky top-0 z-50 shadow-lg">
-      <div className="container mx-auto md:flex justify-between items-center">
-        <div className="flex justify-between">
-          <a href="#hero"><h1 className="text-xl font-bold">Shubham Maity</h1></a>
-          <img src={burger} onClick={() => { setExpand(!expand) }} className={`md:hidden size-10 text-white cursor-pointer  rounded-md hover:border w-16`}></img>
+    <nav className="absolute top-4 left-1/2 transform -translate-x-1/2 z-50 bg-transparent p-4">
+      <div className="container mx-auto flex justify-center items-center relative">
+        
+        {/* Burger Icon for Mobile */}
+        <div className="absolute left-4 md:hidden">
+          <button 
+            onClick={() => setExpand(!expand)} 
+            className="focus:outline-none text-white"
+          >
+            <FaBars className="size-10 cursor-pointer p-2 rounded-md hover:bg-white/20 transition" />
+          </button>
         </div>
-        <ul className={`md:flex ${expand && `grid grid-flow-row pt-8 space-y-4`} ${!expand && `hidden`} space-x-4`}>
-          <li><a href="https://www.linkedin.com/in/maityshub/overlay/1733080567248/single-media-viewer/?profileId=ACoAAEVCtxUBBYHUrlawURg0P5uClEmyhCL15Tw" className="hover:text-blue-400 bg-blue-900 rounded-full px-4 py-2 transition-all" target="_blank">Resume</a></li>
-          <li><a href="#about" className="hover:text-blue-400 transition-all">About</a></li>
-          <li><a href="#projects" className="hover:text-blue-400 transition-all">Projects</a></li>
-          <li><a href="#skills" className="hover:text-blue-400 transition-all">Skills</a></li>
-          <li><a href="#contact" className="hover:text-blue-400 transition-all">Contact</a></li>
-        </ul>
+
+        {/* Navigation Container with Glass Effect */}
+        <div className={`flex items-center gap-6 px-6 py-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-lg
+          ${expand ? "block" : "hidden md:flex"}`}
+        >
+          <a href="#about" className="text-white hover:text-blue-400 transition">About</a>
+          <a href="#projects" className="text-white hover:text-blue-400 transition">Projects</a>
+          <a href="#skills" className="text-white hover:text-blue-400 transition">Skills</a>
+          <a href="#contact" className="text-white hover:text-blue-400 transition">Contact</a>
+        </div>
       </div>
     </nav>
   );

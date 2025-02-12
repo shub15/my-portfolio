@@ -10,50 +10,81 @@ const Projects = () => {
       title: "CET College Finder",
       description: "A comprehensive platform to search and filter colleges based on cutoffs and other criteria.",
       link: "https://github.com/shub15/cetcollegefinder",
-      img: project1
+      img: project1,
+      stack: ["React", "Spring Boot", "MySQL", "Tailwind CSS"],
     },
     {
-      title: "SMS Data",
-      description: "Analyzed real-world SMS data to derive insightful financial trends and relationships",
+      title: "SMS Data Analysis",
+      description: "Analyzed real-world SMS data to derive insightful financial trends and relationships.",
       link: "https://github.com/shub15/sms_data_analysis",
-      img: project2
+      img: project2,
+      stack: ["Python", "Pandas", "Matplotlib", "Seaborn"],
     },
     {
       title: "Embedded Software in C",
-      description: "Programs to control 4 wheel holonomic drive robot which uses mecanum wheels",
+      description: "Programs to control a 4-wheel holonomic drive robot using mecanum wheels.",
       link: "https://github.com/shub15/arduino",
-      img: project3
+      img: project3,
+      stack: ["C", "Arduino", "Embedded Systems"],
     },
     {
       title: "Portfolio Website",
       description: "A personal portfolio to showcase my skills and projects.",
       link: "https://shubhamportfolio-seven.vercel.app/",
-      img: project4
+      img: project4,
+      stack: ["React", "Tailwind CSS", "Framer Motion"],
     },
   ];
 
   return (
-    <section id="projects" className="py-20 bg-blue-50 overflow-hidden">
-      <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-6">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section id="projects" className="py-20 bg-black text-white">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-extrabold mb-12 text-gray-200 tracking-wide text-center">
+          Projects
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              // className="border p-4 rounded-lg hover:shadow-lg transition transform hover:scale-105"
-              className="border p-4 rounded-lg hover:bg-gray-200"
-              // style={{backgroundImage: `url(${project1})`}}
+              className="bg-[#121212] rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border border-cyan-950"
             >
-              <img className={!project.img ? "bg-slate-800 min-h-60" : "min-h-60"} src={project.img} alt="preview of the project" srcset=""/>
-              <h3 className="text-xl font-semibold my-2">{project.title}</h3>
-              <p className="text-gray-700 mb-6 mx-8">{project.description}</p>
-              <a
-                href={project.link}
-                className="text-white bg-blue-900 px-4 py-2 rounded-full hover:bg-blue-800"
-                target="_blank"
-              >
-                View Project
-              </a>
+              <div className="w-full h-64 overflow-hidden rounded-t-lg">
+                <img
+                  className="w-full h-full object-cover transition-transform duration-500"
+                  src={project.img}
+                  alt={project.title}
+                />
+              </div>
+
+              <div className="text-left mt-4 p-4">
+                <h3 className="text-2xl font-semibold">{project.title}</h3>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {project.stack.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 bg-gray-800 text-gray-300 text-xm rounded-lg"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Description */}
+                <p className="text-gray-400 my-4 text-justify">{project.description}</p>
+
+                {/* View Project Button */}
+                <a
+                  href={project.link}
+                  className="inline-block px-6 py-2 bg-gray-900 hover:bg-gray-700 text-white rounded-lg font-medium transition"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Project
+                </a>
+              </div>
             </div>
           ))}
         </div>
