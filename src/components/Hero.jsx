@@ -76,7 +76,7 @@ const Hero = () => {
                         <FaGithub />
                     </a>
                     <a
-                        href="https://www.linkedin.com/in/maityshub/overlay/1733080567248/single-media-viewer/?profileId=ACoAAEVCtxUBBYHUrlawURg0P5uClEmyhCL15Tw"
+                        href="https://drive.google.com/file/d/1jXZgGs4Mgd5dyEiiCDDBambHTgJFhuRF/view?usp=sharing"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-xl text-gray-500 hover:text-white transition-all"
