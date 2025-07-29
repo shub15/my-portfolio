@@ -1,5 +1,5 @@
 import React from "react";
-import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Contact = () => {
     return (
@@ -9,11 +9,11 @@ const Contact = () => {
                     Contact Me
                 </h2>
                 <p className="text-gray-400 text-lg mb-8">
-                    Feel free to reach out for collaborations or just a friendly chat!
+                    Feel free to reach out for collaborations
                 </p>
 
                 {/* Email Button */}
-                <div className="mt-8 flex justify-center">
+                {/* <div className="mt-8 flex justify-center">
                     <a
                         href="mailto:maityshubham1510@gmail.com"
                         target="_blank"
@@ -22,21 +22,32 @@ const Contact = () => {
                     >
                         <FaEnvelope className="text-xl" /> maityshubham1510@gmail.com
                     </a>
-                </div>
+                </div> */}
 
 
 
                 {/* Social Media Links */}
                 <div className="flex justify-center gap-6 mt-8">
-                    <a href="https://github.com/shubhammaity" target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-white transition">
+                    <a
+                        href="mailto:maityshubham1510@gmail.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-3xl text-gray-400 hover:text-white transition"
+                    >
+                        <FaEnvelope/>
+                    </a>
+                    <a href="https://github.com/shub15" target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-white transition">
                         <FaGithub />
                     </a>
-                    <a href="https://linkedin.com/in/shubhammaity" target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-white transition">
+                    <a href="https://linkedin.com/in/maityshub" target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-white transition">
                         <FaLinkedin />
                     </a>
-                    <a href="https://twitter.com/shubhammaity" target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-white transition">
-                        <FaTwitter />
+                    <a href="https://instagram.com/maityshub" target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-white transition">
+                        <FaInstagram />
                     </a>
+                    {/* <a href="https://twitter.com/shubhammaity" target="_blank" rel="noopener noreferrer" className="text-3xl text-gray-400 hover:text-white transition">
+                        <FaTwitter />
+                    </a> */}
                 </div>
             </div>
         </section>
