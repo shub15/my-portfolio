@@ -5,10 +5,12 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-6">
       <div className="container mx-auto text-center">
-        <p className="text-lg font-medium text-gray-300">
-          &copy; 2024 <span className="text-blue-400 font-semibold">Shubham Maity</span>. All Rights Reserved.
-        </p>
-        
+        <a href="#hero">
+          <p className="text-lg font-medium text-gray-300">
+            &copy; 2024 <span className="text-blue-400 font-semibold">Shubham Maity</span>. All Rights Reserved.
+          </p>
+        </a>
+
         {/* Social Links */}
         {/* <div className="flex justify-center items-center gap-6 mt-4">
           <a 

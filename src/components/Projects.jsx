@@ -30,7 +30,7 @@ const Projects = () => {
     {
       title: "Embedded Software in C",
       description: "The system for the robot was primarily developed for Robocon 2025, and is designed to operate using an STM32 microcontroller equipped with advanced functionalities, and is controlled via a PS5 controller.",
-      link: "https://github.com/shub15/arduino",
+      link: "https://github.com/robocon-kjsieit",
       img: project3,
       stack: ["C", "STM32", "Arduino", "ESP32", "Embedded System", "Control System"],
     },
@@ -45,7 +45,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 bg-black text-white">
-      <div className="container mx-auto px-24">
+      <div className="container mx-auto px-4 md:px-24">
         <h2 className="text-4xl font-extrabold mb-12 text-gray-200 tracking-wide text-center">
           Projects
         </h2>
