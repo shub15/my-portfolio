@@ -7,7 +7,7 @@ import project4 from "../assets/project4.jpeg";
 const Projects = () => {
   const projects = [
     {
-      title: "CET College Finder",
+      title: "College Finder",
       description: "A comprehensive platform to search and filter colleges based on cutoffs and other criteria.",
       link: "https://github.com/shub15/cetcollegefinder",
       img: project1,
@@ -17,12 +17,12 @@ const Projects = () => {
       title: "SMS Data Analysis",
       description: "This project focuses on analyzing real-world SMS data to derive insightful financial trends and relationships. We developed this project during the Finothon hackathon to showcase the potential of data analysis in improving financial literacy and decision-making.",
       link: "https://github.com/shub15/sms_data_analysis",
-      img: "https://media.licdn.com/dms/image/v2/D4D22AQGTJb0QnclcLA/feedshare-shrink_2048_1536/B4DZUOq3wlHAAo-/0/1739707875338?e=1756339200&v=beta&t=Ry3H8MwwKd1hJr2bn1oTGWPVEta6Vf55OWRcUbTSPKI",
+      img: "https://media.licdn.com/dms/image/v2/D4D22AQHmXcTFixMFRA/feedshare-shrink_2048_1536/B4DZUOq32FHkAo-/0/1739707875836?e=1756944000&v=beta&t=gkrW0uQ2JKp1Qn99SZhMEBvvLGwI48KpWZPEMLl7sik",
       stack: ["Python", "Pandas", "Matplotlib", "Seaborn"],
     },
     // {
     //   title: "Embedded Software in C",
-    //   description: "Programs to control a 4-wheel holonomic drive robot using mecanum wheels.",
+    //   description: "Programs to control a 4-wheel holonomic drive robot using mecanum wheels. The system was primarily developed for Robocon 2025, and is designed to operate using an STM32 microcontroller equipped with advanced functionalities, and is controlled via a PS5 controller.",
     //   link: "https://github.com/shub15/arduino",
     //   img: project3,
     //   stack: ["C", "STM32", "Arduino", "ESP32", "Embedded Systems"],
