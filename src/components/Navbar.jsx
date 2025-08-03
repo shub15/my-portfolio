@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5"; // For close icon (install react-icons if needed)
+import { NavLink } from "react-router";
 
 const NAV_LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
+  { href: "/", label: "About" },
+  { href: "projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ];
@@ -37,13 +38,13 @@ const Navbar = () => {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6 px-6 py-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-lg">
           {NAV_LINKS.map((link) => (
-            <a
+            <NavLink
               key={link.href}
-              href={link.href}
+              to={link.href}
               className="text-white hover:text-blue-400 transition"
             >
               {link.label}
-            </a>
+            </NavLink>
           ))}
         </div>
 
@@ -67,14 +68,14 @@ const Navbar = () => {
               </button>
               <nav className="flex flex-col gap-6 mt-8">
                 {NAV_LINKS.map((link) => (
-                  <a
+                  <NavLink
                     key={link.href}
-                    href={link.href}
+                    to={link.href}
                     className="text-gray-100 text-lg font-medium hover:text-blue-400 transition"
                     onClick={() => setExpand(false)}
                   >
                     {link.label}
-                  </a>
+                  </NavLink>
                 ))}
               </nav>
             </div>

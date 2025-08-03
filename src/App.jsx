@@ -1,11 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { Outlet } from "react-router";
 
 function App() {
   return (
@@ -14,12 +10,8 @@ function App() {
       className="font-bai"
     >
       <Navbar />
-      <Hero />
-      {/* <About /> */}
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+      <Outlet />
+      {/* <Footer /> */}
     </div>
   );
 }

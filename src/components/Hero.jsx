@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { Link } from "react-router";
 
 const Hero = () => {
   return (
@@ -70,9 +71,9 @@ const Hero = () => {
           {/* Call-to-Action Buttons */}
           <motion.div
             className="mt-10 sm:mt-16 flex flex-col sm:flex-row justify-center md:justify-start items-center space-y-4 sm:space-y-0 sm:space-x-6"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
           >
             <a
               href="https://drive.google.com/file/d/1jXZgGs4Mgd5dyEiiCDDBambHTgJFhuRF/view?usp=sharing"
@@ -82,12 +83,12 @@ const Hero = () => {
             >
               View Resume
             </a>
-            <a
-              href="#projects"
+            <Link
+              to="projects"
               className="text-gray-500 font-bold text-base hover:text-white transition-all w-full sm:w-auto text-center"
             >
               View My Work
-            </a>
+            </Link>
           </motion.div>
         </div>
 
@@ -96,7 +97,7 @@ const Hero = () => {
           className="relative mt-16 md:mt-0 hidden md:flex items-center justify-center"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1, duration: 0.5 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
         >
           {/* Blurred Background Image */}
           <img

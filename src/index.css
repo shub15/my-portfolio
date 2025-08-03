@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* in your styles.css or global CSS */
+.hollow-text {
+  -webkit-text-stroke: 2px black;   /* 2px wide, white outline (change as needed) */
+  color: transparent;              /* Makes text fill transparent */
+}
+
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
