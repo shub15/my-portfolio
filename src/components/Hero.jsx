@@ -76,7 +76,7 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.5 }}
           >
             <a
-              href="https://drive.google.com/file/d/1jXZgGs4Mgd5dyEiiCDDBambHTgJFhuRF/view?usp=sharing"
+              href="https://drive.google.com/file/d/18g0LOXcMNHqosuDSnlqVVXmnQEXAD87T/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 border border-gray-500 rounded-lg text-gray-500 font-bold text-base hover:bg-gray-100 hover:text-black transition-all w-full sm:w-auto text-center"
