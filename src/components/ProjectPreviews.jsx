@@ -103,20 +103,48 @@ export default function ProjectShowcase() {
   const [index, setIndex] = useState(0);
   const contentRef = useRef(null);
   const [showNextButton, setShowNextButton] = useState(false);
+  const scrollTimeoutRef = useRef(null);
 
-  // Detect when scroll hits bottom of content section
+  // Improved scroll detection with throttling and better logic
   useEffect(() => {
     const handleScroll = () => {
-      const content = contentRef.current;
-      if (!content) return;
-      const rect = content.getBoundingClientRect();
-      const atBottom = rect.bottom < window.innerHeight + 40; // Allow some buffer
-      setShowNextButton(atBottom && index < projects.length - 1);
+      // Clear existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+
+      // Throttle the scroll detection to prevent excessive calculations
+      scrollTimeoutRef.current = setTimeout(() => {
+        const content = contentRef.current;
+        if (!content) return;
+
+        const rect = content.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // More reliable detection: show button when user has scrolled past 70% of the content
+        // or when they're near the bottom of the page
+        const contentBottom = rect.bottom;
+        const scrollThreshold = windowHeight * 0.3; // Show when 30% of viewport is left
+        const atBottom = contentBottom <= scrollThreshold || 
+                        (scrollY + windowHeight >= documentHeight - 100);
+        
+        const shouldShow = atBottom && index < projects.length - 1;
+        setShowNextButton(shouldShow);
+      }, 100); // 100ms throttle
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    // Initial check
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
   }, [index]);
 
   // Scroll up to top of project content when switching
@@ -131,7 +159,7 @@ export default function ProjectShowcase() {
   const next = projects[index + 1];
 
   return (
-    <div className="min-h-screen bg-black relative font-inter">
+    <div className="min-h-screen bg-black relative font-inter overflow-hidden">
       <div ref={contentRef}>
         <AnimatePresence mode="wait">
           <motion.div
@@ -145,7 +173,7 @@ export default function ProjectShowcase() {
             <header className="relative py-6 md:px-8 flex items-center justify-center md:justify-between">
               <Link to="/" className="text-4xl font-extrabold tracking-tight text-white">Shubham</Link>
             </header>
-            <div className="relative bg-gradient-to-l from-slate-300 to-slate-900 py-6 px-8 flex items-center justify-between">
+            <div className="relative bg-gradient-to-l from-slate-300 to-slate-900 py-6 px-8 flex items-center justify-center">
               <span className="relative text-7xl font-extrabold text-gray-900 hollow-text ml-auto z-10 drop-shadow-lg">
                 {current.title}
               </span>
@@ -225,8 +253,8 @@ export default function ProjectShowcase() {
           onClick={() => gotoProject(index + 1)}
           className="fixed bottom-7 right-7 z-50 flex items-center bg-white/90 hover:bg-sky-700 hover:text-white shadow-lg px-4 py-2 rounded-full text-sky-900 font-bold transition group"
         >
-          <span className="mr-2 text-base max-w-xs truncate">{next.title}</span>
-          <FaArrowRight size={20} className="group-hover:translate-x-1 transition" />
+          <span className="mr-2 text-sm md:text-base max-w-[120px] md:max-w-xs truncate">{next.title}</span>
+          <FaArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
         </button>
       )}
       {/* Optional: Previous Button (if needed) */}
@@ -235,8 +263,8 @@ export default function ProjectShowcase() {
           onClick={() => gotoProject(index - 1)}
           className="fixed bottom-20 right-7 z-50 flex items-center bg-white/90 hover:bg-sky-700 hover:text-white shadow-lg px-4 py-2 rounded-full text-sky-900 font-bold transition group"
         >
-          <FaArrowLeft size={20} className="mr-2 group-hover:-translate-x-1 transition" />
-          <span className="text-base">{projects[index - 1]?.title}</span>
+          <FaArrowLeft size={18} className="mr-2 group-hover:-translate-x-1 transition-transform duration-300 flex-shrink-0" />
+          <span className="text-sm md:text-base max-w-[120px] md:max-w-xs truncate">{projects[index - 1]?.title}</span>
         </button>
       )}
     </div>
