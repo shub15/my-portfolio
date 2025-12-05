@@ -4,9 +4,12 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 // Import images as needed
 import project1 from "../assets/project1.png";
-import project2 from "../assets/project2.png";
+import project2Certificate from "../assets/sms_analysis/certificate.jpg";
+import project2Presentation from "../assets/sms_analysis/presentation.jpeg";
 import project3 from "../assets/robocon_2025_bot_photo.jpeg";
 import { Link } from "react-router";
+
+const project2 = [project2Certificate, project2Presentation];
 
 const projects = [
   {
@@ -35,7 +38,7 @@ const projects = [
     description: "This project focused on analyzing real-world SMS data to derive insightful financial trends and relationships. We developed this project during the Finothon hackathon to showcase the potential of data analysis in improving financial literacy and decision-making.",
     link: "https://github.com/shub15/sms_data_analysis",
     images: [
-      "https://media.licdn.com/dms/image/v2/D4D22AQHmXcTFixMFRA/feedshare-shrink_2048_1536/B4DZUOq32FHkAo-/0/1739707875836?e=1756944000&v=beta&t=gkrW0uQ2JKp1Qn99SZhMEBvvLGwI48KpWZPEMLl7sik",
+      ...project2
     ],
     stack: ["Python", "Pandas", "Matplotlib", "Seaborn"],
   },
@@ -234,7 +237,7 @@ export default function ProjectShowcase() {
                         href={current.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block mt-4 px-5 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-700 hover:to-black text-white font-semibold shadow transition"
+                        className="inline-block mt-4 px-5 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-700 hover:to-black hover:outline hover:outline-blue-800 hover:outline-1 text-white font-semibold shadow transition"
                       >
                         View Project &rarr;
                       </a>

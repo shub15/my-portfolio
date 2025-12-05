@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { Link } from "react-router";
+import profile_pic from "../assets/profile_pic/profile_pic.jpg";
 
 const Hero = () => {
   return (
@@ -13,12 +14,13 @@ const Hero = () => {
         <div className="flex flex-col justify-center h-screen">
           {/* Animated Heading */}
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-100 drop-shadow-lg"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-100 drop-shadow-lg
+            bg-gradient-to-l from-slate-300 to-slate-900 py-6 px-8 flex items-center justify-center"
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            Hi, I'm <br></br><span className="bg-gradient-to-r from-indigo-400 via-cyan-400 to-lime-300 bg-clip-text text-transparent">Shubham Maity</span>
+            Hi, I'm <br></br><span className="text-7xl hollow-text  drop-shadow-lg ml-4">Shubham Maity</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -76,7 +78,7 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.5 }}
           >
             <a
-              href="https://drive.google.com/file/d/18g0LOXcMNHqosuDSnlqVVXmnQEXAD87T/view?usp=sharing"
+              href="https://drive.google.com/file/d/1UeKv_WHXIE4Bh_7uoyorOOkyj7cVi7MI/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 border border-gray-500 rounded-lg text-gray-500 font-bold text-base hover:bg-gray-100 hover:text-black transition-all w-full sm:w-auto text-center"
@@ -101,13 +103,13 @@ const Hero = () => {
         >
           {/* Blurred Background Image */}
           <img
-            src="https://media.licdn.com/dms/image/v2/D5603AQGCkZRvcAB1oA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1702657951245?e=1756339200&v=beta&t=ryBdIe89xFhGwPXlRT2Ot9QbaOL9gyd8FH3gnlh_k4w"
+            src={profile_pic}
             alt="Profile background"
-            className="absolute blur-3xl scale-105 rounded-full w-44 h-44 sm:w-56 sm:h-56 md:w-80 md:h-80"
+            className="absolute blur-3xl rounded-full"
           />
           {/* Foreground Image */}
           <img
-            src="https://media.licdn.com/dms/image/v2/D5603AQGCkZRvcAB1oA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1702657951245?e=1756339200&v=beta&t=ryBdIe89xFhGwPXlRT2Ot9QbaOL9gyd8FH3gnlh_k4w"
+            src={profile_pic}
             alt="Profile"
             className="relative z-10 rounded-full w-40 h-40 sm:w-52 sm:h-52 md:w-72 md:h-72 object-cover"
           />
