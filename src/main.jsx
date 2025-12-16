@@ -10,11 +10,13 @@ import Home from "./components/Home.jsx";
 import ProjectPreviews from "./components/ProjectPreviews.jsx";
 import Contact from "./components/Contact.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <><ScrollToTop /><App /></>,
+    errorElement: <ErrorBoundary />,
     children: [
       { index: true, element: <Home /> },
       { path: "projects/:id", element: <ProjectPreviews /> },

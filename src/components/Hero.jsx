@@ -6,7 +6,7 @@ import profile_pic from "../assets/profile_pic/profile_pic.jpg";
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative bg-black text-white min-h-screen flex items-center overflow-hidden selection:bg-white selection:text-black">
+    <section id="hero" className="relative bg-black text-white min-h-screen flex items-center pt-32 md:pt-0 overflow-hidden selection:bg-white selection:text-black">
       
       {/* --- Ambient Background Effects --- */}
       {/* Blue Glow Top Left */}
@@ -38,7 +38,7 @@ const Hero = () => {
 
             {/* Name */}
             <motion.h1
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9] mb-6 text-white"
+              className="text-6xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-[0.9] mb-6 text-white"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}

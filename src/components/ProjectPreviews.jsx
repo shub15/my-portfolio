@@ -15,13 +15,13 @@ const ProjectSlider = ({ images = [] }) => {
   const prevSlide = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
 
   return (
-    <div className="relative w-full h-[50vh] md:h-[70vh] bg-neutral-900 group overflow-hidden rounded-sm">
+    <div className="relative w-full aspect-[16/9] bg-neutral-900 group overflow-hidden rounded-sm">
       <img
         src={images[current]}
         alt={`Slide ${current + 1}`}
         className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
       />
-      
+
       {/* Navigation - Only visible on hover */}
       {images.length > 1 && (
         <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -37,9 +37,9 @@ const ProjectSlider = ({ images = [] }) => {
       {/* Progress Bar */}
       <div className="absolute bottom-0 left-0 right-0 flex h-1 bg-neutral-800">
         {images.map((_, idx) => (
-          <div 
-            key={idx} 
-            className={`flex-1 transition-colors duration-300 ${idx === current ? "bg-white" : "bg-transparent"}`} 
+          <div
+            key={idx}
+            className={`flex-1 transition-colors duration-300 ${idx === current ? "bg-white" : "bg-transparent"}`}
           />
         ))}
       </div>
@@ -50,7 +50,7 @@ const ProjectSlider = ({ images = [] }) => {
 // 2. Main Page
 export default function ProjectShowcase() {
   const { id } = useParams();
-  
+
   // Data Logic
   const project = projectsData.find((p) => p.id === id);
   const projectIndex = projectsData.findIndex((p) => p.id === id);
@@ -68,9 +68,9 @@ export default function ProjectShowcase() {
   }
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black"
     >
@@ -88,7 +88,7 @@ export default function ProjectShowcase() {
       </header>
 
       <main className="pt-32 pb-20 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto">
-        
+
         {/* --- Hero Section --- */}
         <div className="border-b border-neutral-800 pb-12 mb-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
@@ -114,8 +114,8 @@ export default function ProjectShowcase() {
             )}
             <div>
               <span className="text-neutral-600 block text-xs mb-1">Tech Stack</span>
-              <div className="flex gap-2">
-                {project.stack.slice(0, 15).map((t, i) => <span key={i}>{t}{i < 2 ? ',' : ''}</span>)}
+              <div className="flex flex-wrap gap-2">
+                {project.stack.slice(0, 15).map((t, i) => <span key={i}>{t}{i < project.stack.length - 1 ? ',' : ''}</span>)}
                 {project.stack.length > 15 && <span>& +{project.stack.length - 15}</span>}
               </div>
             </div>
@@ -124,27 +124,27 @@ export default function ProjectShowcase() {
 
         {/* --- Content Grid --- */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-24">
-          
+
           {/* Left: Description */}
           <div className="lg:col-span-7">
-             <h3 className="text-2xl font-medium mb-6 text-neutral-200">About the project</h3>
-             <p className="text-neutral-400 leading-relaxed text-lg whitespace-pre-line">
-               {project.description}
-             </p>
-             
-             {project.link && (
-               <div className="mt-8">
-                 <a 
-                   href={project.link} 
-                   target="_blank" 
-                   rel="noreferrer"
-                   className="inline-flex items-center gap-3 border border-neutral-700 px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 group"
-                 >
-                   <span className="font-medium">Visit Live Site</span>
+            <h3 className="text-2xl font-medium mb-6 text-neutral-200">About the project</h3>
+            <p className="text-neutral-400 leading-relaxed text-lg whitespace-pre-line">
+              {project.description}
+            </p>
+
+            {project.link && (
+              <div className="mt-8">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-3 border border-neutral-700 px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 group"
+                >
+                  <span className="font-medium">Visit Live Site</span>
                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                 </a>
-               </div>
-             )}
+                </a>
+              </div>
+            )}
           </div>
 
           {/* Right: Key Features List */}
@@ -169,7 +169,7 @@ export default function ProjectShowcase() {
         <div className="mb-32">
           <ProjectSlider images={project.images ?? [project.img]} />
           <p className="text-center text-neutral-600 text-xs font-mono mt-4 uppercase">
-             Project Visuals — {project.title}
+            Project Visuals — {project.title}
           </p>
         </div>
 

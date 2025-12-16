@@ -1,9 +1,16 @@
-import project1 from "../assets/project1.png";
-import project2Certificate from "../assets/sms_analysis/certificate.jpg";
-import project2Presentation from "../assets/sms_analysis/presentation.jpeg";
-import project3 from "../assets/robocon_2025_bot_photo.jpeg";
+import collegeFinderImage from "../assets/college_finder/preview.png";
+import smsCertificate from "../assets/sms_analysis/certificate.jpg";
+import smsPresentation from "../assets/sms_analysis/presentation.jpeg";
+import roboconImage from "../assets/robocon/robocon_2025_bot_photo.jpeg";
+import flagr1 from "../assets/flagr/flagr (1).png";
+import flagr2 from "../assets/flagr/flagr (2).png";
+import flagr3 from "../assets/flagr/flagr (3).png";
+import flagr4 from "../assets/flagr/flagr (4).png";
+import flagr5 from "../assets/flagr/flagr (5).png";
+import flagr6 from "../assets/flagr/flagr (6).png";
+import flagr7 from "../assets/flagr/flagr (7).png";
+import flagr8 from "../assets/flagr/flagr (8).png";
 // TODO: Import images for new projects below
-// import flagrImage from "../assets/flagr.png";
 // import blockchainImage from "../assets/blockchain.png";
 // import restroImage from "../assets/restro.png";
 // import phishingImage from "../assets/phishing.png";
@@ -15,8 +22,8 @@ export const projectsData = [
     subtitle: "Multi-Agent System for Contract Analysis",
     description: "An AI-powered legal advisor that uses a multi-agent system (Skeptic, Strategist, Auditor) with RAG-enhanced LLM councils to analyze employment contracts against Indian Labour Law. It identifies critical risks, missing clauses, and negotiable terms, providing a safety score with actionable recommendations and generating contextually-refined contracts.",
     link: "https://github.com/shub15/flagr",
-    img: "https://via.placeholder.com/600x400?text=Flagr+AI",
-    images: [],
+    img: flagr1,
+    images: [flagr1, flagr2, flagr3, flagr4, flagr5, flagr6, flagr7, flagr8],
     stack: ["React", "FastAPI", "LLM Orchestration", "LangGraph", "Pinecone (VectorDB)", "Postgres"],
     features: [
       "Multi-Agent Architecture (Skeptic, Strategist, Auditor)",
@@ -33,8 +40,8 @@ export const projectsData = [
     subtitle: "Robocon 2025 (Ranked 16th/40)",
     description: "Designed and built for the ABU Robocon 2025 competition. Implemented a 3-wheel holonomic drive with pneumatic actuations and integrated various sensors. The system uses an embedded control setup with STM32 and ESP32 for wireless communication, controlled via a PS5 controller for precise robotic operations.",
     link: "https://github.com/robocon-kjsieit",
-    img: project3,
-    images: [project3],
+    img: roboconImage,
+    images: [roboconImage],
     stack: ["STM32", "ESP32", "Arduino", "C/C++", "Pneumatics", "Control Systems"],
     features: [
       "3-Wheel Holonomic Drive System",
@@ -88,7 +95,7 @@ export const projectsData = [
     description: "Analyzed 100,000+ daily SMS data entries to extract financial information related to credit & debit transactions, loans, EMI amounts, and user spending & earning trends. Created during the Finathon hackathon to showcase financial literacy potential.",
     link: "https://github.com/shub15/sms_data_analysis",
     img: "https://media.licdn.com/dms/image/v2/D4D22AQHmXcTFixMFRA/feedshare-shrink_2048_1536/B4DZUOq32FHkAo-/0/1739707875836?e=1756944000&v=beta&t=gkrW0uQ2JKp1Qn99SZhMEBvvLGwI48KpWZPEMLl7sik",
-    images: [project2Certificate, project2Presentation],
+    images: [smsCertificate, smsPresentation],
     stack: ["Pandas", "NumPy", "Scikit-Learn", "Matplotlib", "Seaborn"],
     features: [
       "Automated Transaction Categorization",
@@ -123,8 +130,8 @@ export const projectsData = [
     subtitle: "Admission Assistance Platform",
     description: "A full-stack application with a user dashboard to assist students in finding colleges based on scores and cutoffs. Features include search, filtering, and comparison tools.",
     link: "https://github.com/shub15/cetcollegefinder",
-    img: project1,
-    images: [project1],
+    img: collegeFinderImage,
+    images: [collegeFinderImage],
     stack: ["Java", "Spring Boot", "Docker", "React", "MySQL", "JDBC", "TailwindCSS"],
     features: [
       "Cutoff-based Search Filters",
