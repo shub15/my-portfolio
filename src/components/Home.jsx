@@ -3,14 +3,16 @@ import Hero from './Hero'
 import Skills from './Skills'
 import Projects from './Projects'
 import Contact from './Contact'
+import Footer from './Footer'
 
 function Home() {
     return (
         <div>
             <Hero />
+            <Projects />
             <Skills />
-            {/* <Projects /> */}
-            <Contact />
+            {/* <Contact /> */}
+            <Footer />
         </div>
     )
 }

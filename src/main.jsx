@@ -9,14 +9,15 @@ import App from './App.jsx'
 import Home from "./components/Home.jsx";
 import ProjectPreviews from "./components/ProjectPreviews.jsx";
 import Contact from "./components/Contact.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <><ScrollToTop /><App /></>,
     children: [
       { index: true, element: <Home /> },
-      { path: "projects", element: <ProjectPreviews /> },
+      { path: "projects/:id", element: <ProjectPreviews /> },
     ]
   },
 ]);

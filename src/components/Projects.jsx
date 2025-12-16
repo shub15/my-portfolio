@@ -1,113 +1,82 @@
-import React from "react";
-import project1 from "../assets/project1.png";
-import project2 from "../assets/project2.png";
-import project3 from "../assets/robocon_2025_bot_photo.jpeg";
-import project4 from "../assets/project4.jpeg";
+import { Link } from "react-router";
+import { projectsData } from "../data/projectsData";
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "College Finder",
-      description: "A comprehensive platform to search and filter colleges based on cutoffs and other criteria.",
-      link: "https://github.com/shub15/cetcollegefinder",
-      img: project1,
-      stack: ["React", "Spring Boot", "MySQL", "Tailwind CSS"],
-    },
-    {
-      title: "SMS Data Analysis",
-      description: "This project focuses on analyzing real-world SMS data to derive insightful financial trends and relationships. We developed this project during the Finothon hackathon to showcase the potential of data analysis in improving financial literacy and decision-making.",
-      link: "https://github.com/shub15/sms_data_analysis",
-      img: "https://media.licdn.com/dms/image/v2/D4D22AQHmXcTFixMFRA/feedshare-shrink_2048_1536/B4DZUOq32FHkAo-/0/1739707875836?e=1756944000&v=beta&t=gkrW0uQ2JKp1Qn99SZhMEBvvLGwI48KpWZPEMLl7sik",
-      stack: ["Python", "Pandas", "Matplotlib", "Seaborn"],
-    },
-    // {
-    //   title: "Embedded Software in C",
-    //   description: "Programs to control a 4-wheel holonomic drive robot using mecanum wheels. The system was primarily developed for Robocon 2025, and is designed to operate using an STM32 microcontroller equipped with advanced functionalities, and is controlled via a PS5 controller.",
-    //   link: "https://github.com/shub15/arduino",
-    //   img: project3,
-    //   stack: ["C", "STM32", "Arduino", "ESP32", "Embedded Systems"],
-    // },
-    {
-      title: "Integrated Embedded Control System for Robocon 2025",
-      description: "The robot was designed for Robocon 2025 hosted by IIT Delhi, which is a national level competition that challenges students to design and build autonomous robots and compete againt various college's team across India. We ranked 16 out of 40 teams. The robot is controlled by an integrated embedded control system that uses an STM32 microcontroller and ESP32 for wireless communication. The system is designed to operate using a PS5 controller, allowing for precise control of the robot's movements with various sensor fusion.",
-      link: "https://github.com/robocon-kjsieit",
-      img: project3,
-      stack: ["C", "STM32", "Arduino", "ESP32", "Embedded System", "Control System"],
-    },
-    // {
-    //   title: "Portfolio Website",
-    //   description: "A personal portfolio to showcase my skills and projects.",
-    //   link: "https://shubhamportfolio-seven.vercel.app/",
-    //   img: project4,
-    //   stack: ["React", "Tailwind CSS", "Framer Motion"],
-    // },
-  ];
-
   return (
-    <section id="projects" className="py-20 bg-black text-white">
-      <div className="container mx-auto px-4 md:px-24">
-        <h2 className="text-4xl font-extrabold mb-12 text-gray-200 tracking-wide text-center">
-          Projects
-        </h2>
+    <section id="projects" className="py-24 bg-black text-white min-h-screen">
+      <div className="container mx-auto px-6 md:px-12 lg:px-24">
+        
+        {/* Section Header */}
+        <div className="flex items-end justify-between mb-16">
+          <div>
+            <h2 className="text-sm font-mono text-neutral-500 uppercase tracking-widest mb-2">
+              / Selected Works
+            </h2>
+            <p className="text-neutral-400 max-w-sm">
+               Engineering solutions with a focus on performance and aesthetics.
+            </p>
+          </div>
+          {/* Optional: Project counter */}
+          <span className="hidden md:block font-mono text-neutral-600">
+            [{projectsData.length}]
+          </span>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-[#121212] rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border border-cyan-950"
+        {/* Project List */}
+        <div className="flex flex-col border-t border-neutral-800">
+          {projectsData.map((project, index) => (
+            <Link
+              key={project.id}
+              to={`/projects/${project.id}`}
+              className="group block border-b border-neutral-800 hover:border-neutral-600 transition-colors duration-500"
             >
-              <div className="w-full h-56 overflow-hidden rounded-t-lg">
-                <img
-                  className="w-full h-full object-cover transition-transform duration-500"
-                  src={project.img}
-                  alt={project.title}
-                />
-              </div>
+              <div className="py-10 md:py-14 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-neutral-900/20 transition-all duration-500 px-2 relative overflow-hidden">
+                
+                {/* Decorative background hover effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/0 via-neutral-900/40 to-neutral-900/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none" />
 
-              <div className="text-left mt-4 p-4">
-                <a
-                  href={project.link}
-                  className="group transition-all"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <h3 className="
-                    text-xl font-semibold 
-                    bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300
-                    bg-clip-text text-transparent
-                    drop-shadow transition-all duration-300
-                    group-hover:bg-gradient-to-r
-                    group-hover:from-yellow-400 group-hover:via-red-500 group-hover:to-pink-500
-                    group-hover:drop-shadow-lg
-                  ">{project.title}</h3>
-                </a>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {project.stack.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-gray-800 text-gray-300 text-xs rounded-lg"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                {/* Left Side: Number & Title */}
+                <div className="flex items-baseline gap-6 md:w-2/3 z-10">
+                   <span className="text-neutral-700 font-mono text-sm hidden md:block group-hover:text-neutral-400 transition-colors">
+                     {String(index + 1).padStart(2, '0')}
+                   </span>
+                   <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold text-neutral-300 group-hover:text-white group-hover:translate-x-4 transition-all duration-300">
+                     {project.title}
+                   </h3>
                 </div>
 
-                {/* Description */}
-                <p className="text-gray-400 my-4 text-sm text-justify">{project.description}</p>
+                {/* Right Side: Stack & Arrow */}
+                <div className="flex items-center justify-between md:justify-end md:w-1/3 gap-8 z-10">
+                   {/* Tech Stack - Mobile: hidden, Desktop: visible */}
+                   <div className="hidden md:flex gap-3">
+                      {project.stack.slice(0, 3).map((tech, i) => (
+                         <span key={i} className="text-xs font-mono text-neutral-500 uppercase tracking-wider">
+                           {tech}
+                         </span>
+                      ))}
+                   </div>
 
-                {/* View Project Button */}
-                {/* <a
-                  href={project.link}
-                  className="inline-block px-4 py-2 bg-gray-900 hover:bg-gray-700 text-white rounded-lg font-medium transition"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Project
-                </a> */}
+                   {/* Mobile Tech Stack (Summary) */}
+                   <div className="md:hidden text-xs font-mono text-neutral-500">
+                      {project.stack[0]} &bull; {project.stack[1]}
+                   </div>
+
+                   {/* Arrow Icon - Rotates on hover */}
+                   <div className="w-10 h-10 rounded-full border border-neutral-800 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all duration-300">
+                     <svg 
+                       width="24" 
+                       height="24" 
+                       viewBox="0 0 24 24" 
+                       fill="none" 
+                       xmlns="http://www.w3.org/2000/svg"
+                       className="text-neutral-500 group-hover:text-black transition-colors duration-300 transform group-hover:-rotate-45"
+                     >
+                       <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                     </svg>
+                   </div>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

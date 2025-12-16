@@ -1,59 +1,12 @@
-import React, { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Link, useParams } from "react-router";
+import { projectsData } from "../data/projectsData";
 
-// Import images as needed
-import project1 from "../assets/project1.png";
-import project2Certificate from "../assets/sms_analysis/certificate.jpg";
-import project2Presentation from "../assets/sms_analysis/presentation.jpeg";
-import project3 from "../assets/robocon_2025_bot_photo.jpeg";
-import { Link } from "react-router";
+// --- Components ---
 
-const project2 = [project2Certificate, project2Presentation];
-
-const projects = [
-  {
-    title: "COLLEGE FINDER",
-    subtitle: "College Finder Platform",
-    description: "A comprehensive platform to search and filter colleges based on cutoffs and other criteria.",
-    link: "https://github.com/shub15/cetcollegefinder",
-    images: [project1],
-    stack: ["React", "Spring Boot", "MySQL", "Tailwind CSS"],
-    features: [
-      "Search",
-      "Filter by Cutoff",
-      "Compare Colleges",
-      "User-Friendly Interface",
-      "Responsive Design",
-      "Secure Authentication",
-      "Data Visualization",
-      "RESTful API Integration",
-    ],
-    featureHeading: "Student can prepare customized list of colleges",
-  },
-  {
-    title: "SMS Data Analysis",
-    subtitle: "100k+ SMS data from users across India",
-    // description: "This project analyzes real-world SMS data to derive insightful financial trends and relationships.",
-    description: "This project focused on analyzing real-world SMS data to derive insightful financial trends and relationships. We developed this project during the Finothon hackathon to showcase the potential of data analysis in improving financial literacy and decision-making.",
-    link: "https://github.com/shub15/sms_data_analysis",
-    images: [
-      ...project2
-    ],
-    stack: ["Python", "Pandas", "Matplotlib", "Seaborn"],
-  },
-  {
-    title: "Integrated Embedded Control System for Robocon 2025",
-    subtitle: "Robocon 2025",
-    // description: "The robot was designed for Robocon 2025 hosted by IIT Delhi. The robot is controlled by an integrated embedded control system using STM32 and ESP32.",
-    description: "The robot was designed for Robocon 2025 hosted by IIT Delhi, which is a national level competition that challenges students to design and build autonomous robots and compete againt various college's team across India. We ranked 16 out of 40 teams. The robot is controlled by an integrated embedded control system that uses an STM32 microcontroller and ESP32 for wireless communication. The system is designed to operate using a PS5 controller, allowing for precise control of the robot's movements with various sensor fusion.",
-    link: "https://github.com/robocon-kjsieit",
-    images: [project3],
-    stack: ["C", "STM32", "Arduino", "ESP32", "Embedded System", "Control System"],
-  },
-];
-
-function ProjectSlider({ images = [] }) {
+// 1. Clean Minimal Slider
+const ProjectSlider = ({ images = [] }) => {
   const [current, setCurrent] = useState(0);
 
   if (!images || images.length === 0) return null;
@@ -61,215 +14,189 @@ function ProjectSlider({ images = [] }) {
   const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
   const prevSlide = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
 
-  useEffect(() => {
-    setCurrent(0);
-  }, [images]);
-
   return (
-    <div className="relative w-full">
+    <div className="relative w-full h-[50vh] md:h-[70vh] bg-neutral-900 group overflow-hidden rounded-sm">
       <img
         src={images[current]}
         alt={`Slide ${current + 1}`}
-        className=" shadow-lg w-full object-cover"
+        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
       />
+      
+      {/* Navigation - Only visible on hover */}
       {images.length > 1 && (
-        <>
-          <button
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 transition"
-            onClick={prevSlide}
-            aria-label="Previous image"
-          >
-            <FaArrowLeft size={22} />
+        <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <button onClick={prevSlide} className="p-3 bg-black/50 backdrop-blur-sm text-white hover:bg-white hover:text-black transition-colors rounded-full">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
           </button>
-          <button
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 transition"
-            onClick={nextSlide}
-            aria-label="Next image"
-          >
-            <FaArrowRight size={22} />
+          <button onClick={nextSlide} className="p-3 bg-black/50 backdrop-blur-sm text-white hover:bg-white hover:text-black transition-colors rounded-full">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
           </button>
-        </>
+        </div>
       )}
-      <div className="flex justify-start">
+
+      {/* Progress Bar */}
+      <div className="absolute bottom-0 left-0 right-0 flex h-1 bg-neutral-800">
         {images.map((_, idx) => (
-          <span
-            key={idx}
-            className={`h-1 grow ${idx === current && images.length > 1 ? "bg-gray-500" : ""}`}
+          <div 
+            key={idx} 
+            className={`flex-1 transition-colors duration-300 ${idx === current ? "bg-white" : "bg-transparent"}`} 
           />
         ))}
       </div>
     </div>
   );
-}
+};
 
+// 2. Main Page
 export default function ProjectShowcase() {
-  const [index, setIndex] = useState(0);
-  const contentRef = useRef(null);
-  const [showNextButton, setShowNextButton] = useState(false);
-  const scrollTimeoutRef = useRef(null);
+  const { id } = useParams();
+  
+  // Data Logic
+  const project = projectsData.find((p) => p.id === id);
+  const projectIndex = projectsData.findIndex((p) => p.id === id);
+  const prevProject = projectIndex > 0 ? projectsData[projectIndex - 1] : null;
+  const nextProject = projectIndex < projectsData.length - 1 ? projectsData[projectIndex + 1] : null;
 
-  // Improved scroll detection with throttling and better logic
-  useEffect(() => {
-    const handleScroll = () => {
-      // Clear existing timeout
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-
-      // Throttle the scroll detection to prevent excessive calculations
-      scrollTimeoutRef.current = setTimeout(() => {
-        const content = contentRef.current;
-        if (!content) return;
-
-        const rect = content.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const scrollY = window.scrollY;
-        const documentHeight = document.documentElement.scrollHeight;
-        
-        // More reliable detection: show button when user has scrolled past 70% of the content
-        // or when they're near the bottom of the page
-        const contentBottom = rect.bottom;
-        const scrollThreshold = windowHeight * 0.3; // Show when 30% of viewport is left
-        const atBottom = contentBottom <= scrollThreshold || 
-                        (scrollY + windowHeight >= documentHeight - 100);
-        
-        const shouldShow = atBottom && index < projects.length - 1;
-        setShowNextButton(shouldShow);
-      }, 100); // 100ms throttle
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    // Initial check
-    handleScroll();
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-    };
-  }, [index]);
-
-  // Scroll up to top of project content when switching
-  const gotoProject = (i) => {
-    setIndex(i);
-    setTimeout(() => {
-      contentRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 75);
-  };
-
-  const current = projects[index];
-  const next = projects[index + 1];
+  // 404 State
+  if (!project) {
+    return (
+      <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-4 text-center">
+        <h1 className="text-4xl font-bold mb-4 font-mono">404: Project Missing</h1>
+        <Link to="/" className="text-neutral-500 hover:text-white border-b border-neutral-800 hover:border-white transition-all pb-1">Return Home</Link>
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-black relative font-inter overflow-hidden">
-      <div ref={contentRef}>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current.title}
-            initial={{ opacity: 0, y: 64 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -32 }}
-            transition={{ duration: 0.45 }}
-          >
-            {/* Project Header */}
-            <header className="relative py-6 md:px-8 flex items-center justify-center md:justify-between">
-              <Link to="/" className="text-4xl font-extrabold tracking-tight text-white">Shubham</Link>
-            </header>
-            <div className="relative bg-gradient-to-l from-slate-300 to-slate-900 py-6 px-8 flex items-center justify-center">
-              <span className="relative text-7xl font-extrabold text-gray-900 hollow-text ml-auto z-10 drop-shadow-lg">
-                {current.title}
-              </span>
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      exit={{ opacity: 0 }}
+      className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black"
+    >
+      {/* --- Header --- */}
+      <header className="fixed top-0 left-0 w-full z-50 mix-blend-difference px-6 py-6 md:px-12 flex justify-between items-center pointer-events-none">
+        <Link to="/" className="text-sm font-mono font-bold tracking-widest pointer-events-auto uppercase hover:opacity-50 transition-opacity">
+          Shubham / Portfolio
+        </Link>
+        <Link to="/" className="pointer-events-auto group flex items-center gap-2">
+          <span className="text-xs font-mono hidden md:block opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2 group-hover:translate-x-0 duration-300">CLOSE</span>
+          <div className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 group-hover:border-white transition-colors bg-black">
+             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </div>
+        </Link>
+      </header>
+
+      <main className="pt-32 pb-20 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto">
+        
+        {/* --- Hero Section --- */}
+        <div className="border-b border-neutral-800 pb-12 mb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter text-white leading-[0.9]">
+              {project.title}
+            </h1>
+            <span className="font-mono text-neutral-500 text-sm mb-2 block md:hidden">
+              {String(projectIndex + 1).padStart(2, '0')} — {projectsData.length}
+            </span>
+          </div>
+
+          {/* Metadata Row */}
+          <div className="flex flex-wrap gap-y-4 gap-x-12 text-sm font-mono text-neutral-400 uppercase tracking-wide">
+            <div>
+              <span className="text-neutral-600 block text-xs mb-1">Role/Subtitle</span>
+              {project.subtitle}
             </div>
+            {project.location && (
+              <div>
+                <span className="text-neutral-600 block text-xs mb-1">Location</span>
+                {project.location}
+              </div>
+            )}
+            <div>
+              <span className="text-neutral-600 block text-xs mb-1">Tech Stack</span>
+              <div className="flex gap-2">
+                {project.stack.slice(0, 15).map((t, i) => <span key={i}>{t}{i < 2 ? ',' : ''}</span>)}
+                {project.stack.length > 15 && <span>& +{project.stack.length - 15}</span>}
+              </div>
+            </div>
+          </div>
+        </div>
 
-            {/* Main content area */}
-            <main className="flex flex-col lg:gap-10 max-w-7xl mx-auto py-14 px-6">
-              <motion.section
-                className="lg:w-1/2 mb-12 lg:mb-0"
-                initial={{ opacity: 0, y: 60 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-              >
-                <h2 className="text-2xl font-bold text-white mb-2">{current.subtitle}</h2>
-                {current.location && (
-                  <p className="text-sm text-gray-100 mb-1">
-                    <span role="img" aria-label="location pin"></span> {current.location}
-                  </p>
-                )}
-                <p className="text-gray-100 mb-6">{current.description}</p>
-                {current.stack && (
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {current.stack.map((tech, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-gray-200 text-gray-700 text-xs rounded-lg font-medium"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </motion.section>
-              {/* Right: Slider + Details */}
-              <motion.section
-                className="flex flex-col items-center md:flex-row md:items-start justify-evenly gap-5"
-                initial={{ opacity: 0, x: 80 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <ProjectSlider images={current.images ?? [current.img]} />
-                {current.features || current.link ? (
-                  <div className="border border-blue-800 text-sm rounded-xl shadow-lg p-5 w-full md:max-w-xs">
-                    {current.features && (
-                      <>
-                        <h3 className="font-semibold mb-2 text-gray-100">
-                          {current.featureHeading ? current.featureHeading : "Key Features"}
-                        </h3>
-                        <ul className="list-disc ml-5 text-gray-300 mt-2 space-y-1">
-                          {current.features.map((f, idx) => (
-                            <li key={idx}>{f}</li>
-                          ))}
-                        </ul>
-                      </>
-                    )}
-                    {current.link && (
-                      <a
-                        href={current.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block mt-4 px-5 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-700 hover:to-black hover:outline hover:outline-blue-800 hover:outline-1 text-white font-semibold shadow transition"
-                      >
-                        View Project &rarr;
-                      </a>
-                    )}
-                  </div>
-                ) : null}
-              </motion.section>
-            </main>
-          </motion.div>
-        </AnimatePresence>
-      </div>
+        {/* --- Content Grid --- */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-24">
+          
+          {/* Left: Description */}
+          <div className="lg:col-span-7">
+             <h3 className="text-2xl font-medium mb-6 text-neutral-200">About the project</h3>
+             <p className="text-neutral-400 leading-relaxed text-lg whitespace-pre-line">
+               {project.description}
+             </p>
+             
+             {project.link && (
+               <div className="mt-8">
+                 <a 
+                   href={project.link} 
+                   target="_blank" 
+                   rel="noreferrer"
+                   className="inline-flex items-center gap-3 border border-neutral-700 px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 group"
+                 >
+                   <span className="font-medium">Visit Live Site</span>
+                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                 </a>
+               </div>
+             )}
+          </div>
 
-      {/* Next Project Button */}
-      {showNextButton && next && (
-        <button
-          onClick={() => gotoProject(index + 1)}
-          className="fixed bottom-7 right-7 z-50 flex items-center bg-white/90 hover:bg-sky-700 hover:text-white shadow-lg px-4 py-2 rounded-full text-sky-900 font-bold transition group"
-        >
-          <span className="mr-2 text-sm md:text-base max-w-[120px] md:max-w-xs truncate">{next.title}</span>
-          <FaArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
-        </button>
-      )}
-      {/* Optional: Previous Button (if needed) */}
-      {index > 0 && (
-        <button
-          onClick={() => gotoProject(index - 1)}
-          className="fixed bottom-20 right-7 z-50 flex items-center bg-white/90 hover:bg-sky-700 hover:text-white shadow-lg px-4 py-2 rounded-full text-sky-900 font-bold transition group"
-        >
-          <FaArrowLeft size={18} className="mr-2 group-hover:-translate-x-1 transition-transform duration-300 flex-shrink-0" />
-          <span className="text-sm md:text-base max-w-[120px] md:max-w-xs truncate">{projects[index - 1]?.title}</span>
-        </button>
-      )}
-    </div>
+          {/* Right: Key Features List */}
+          <div className="lg:col-span-5 border-l border-neutral-800 lg:pl-12">
+            <h3 className="text-sm font-mono text-neutral-500 uppercase tracking-widest mb-6">
+              / {project.featureHeading || "Key Highlights"}
+            </h3>
+            <ul className="space-y-4">
+              {project.features?.map((feature, idx) => (
+                <li key={idx} className="flex gap-4 items-start group">
+                  <span className="text-neutral-700 font-mono text-sm mt-1">0{idx + 1}</span>
+                  <span className="text-neutral-300 group-hover:text-white transition-colors">
+                    {feature}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* --- Visuals --- */}
+        <div className="mb-32">
+          <ProjectSlider images={project.images ?? [project.img]} />
+          <p className="text-center text-neutral-600 text-xs font-mono mt-4 uppercase">
+             Project Visuals — {project.title}
+          </p>
+        </div>
+
+        {/* --- Footer Navigation --- */}
+        <div className="border-t border-neutral-800 pt-12 flex flex-col md:flex-row justify-between gap-8">
+          {prevProject ? (
+            <Link to={`/projects/${prevProject.id}`} className="group flex-1">
+              <span className="text-xs font-mono text-neutral-600 mb-2 block uppercase">Previous</span>
+              <div className="flex items-center gap-4 text-neutral-400 group-hover:text-white transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:-translate-x-2 transition-transform"><path d="M19 12H5M5 12L12 19M5 12L12 5"/></svg>
+                <span className="text-2xl md:text-3xl font-bold">{prevProject.title}</span>
+              </div>
+            </Link>
+          ) : <div className="flex-1" />}
+
+          {nextProject ? (
+            <Link to={`/projects/${nextProject.id}`} className="group flex-1 text-right">
+              <span className="text-xs font-mono text-neutral-600 mb-2 block uppercase">Next Project</span>
+              <div className="flex items-center justify-end gap-4 text-neutral-400 group-hover:text-white transition-colors">
+                <span className="text-2xl md:text-3xl font-bold">{nextProject.title}</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-2 transition-transform"><path d="M5 12H19M19 12L12 5M19 12L12 19"/></svg>
+              </div>
+            </Link>
+          ) : <div className="flex-1" />}
+        </div>
+
+      </main>
+    </motion.div>
   );
 }
