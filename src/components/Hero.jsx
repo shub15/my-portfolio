@@ -4,6 +4,8 @@ import { FaLinkedin, FaGithub, FaFileDownload } from "react-icons/fa";
 import { Link } from "react-scroll"; // Assuming you might want smooth scroll, or use react-router Link
 import profile_pic from "../assets/profile_pic/profile_pic.jpg";
 
+const resumeLink = import.meta.env.VITE_RESUME_LINK;
+
 const Hero = () => {
   return (
     <section id="hero" className="relative bg-black text-white min-h-screen flex items-center pt-32 md:pt-0 overflow-hidden selection:bg-white selection:text-black">
@@ -59,8 +61,8 @@ const Hero = () => {
               </h2>
               
               <p className="text-neutral-400 leading-relaxed max-w-lg mx-auto lg:mx-0 text-base md:text-lg">
-                Engineering intelligent solutions at the intersection of hardware and software. 
-                Currently Programming Lead at <span className="text-white border-b border-neutral-700">Robocon KJSIT</span>.
+                Pursuing B.Tech in Information Technology from <span className="text-white border-b border-neutral-700">Mumbai University</span>. 
+                Currently interning as React Native dev at <span className="text-white border-b border-neutral-700">Baya</span>.
               </p>
             </motion.div>
 
@@ -79,7 +81,7 @@ const Hero = () => {
               </a>
               
               <a
-                href="https://drive.google.com/file/d/1b1XtDROnvhCnMVjj41T4LsEc6yQnxBOQ/view?usp=sharing"
+                href={resumeLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 border border-neutral-700 text-neutral-300 rounded-full hover:border-white hover:text-white transition-colors duration-200 flex items-center justify-center gap-2 w-full sm:w-auto group"

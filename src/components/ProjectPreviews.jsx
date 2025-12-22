@@ -5,8 +5,8 @@ import { projectsData } from "../data/projectsData";
 
 // --- Components ---
 
-// 1. Clean Minimal Slider
-const ProjectSlider = ({ images = [] }) => {
+// 1. Clean Minimal Slider (Original Design) - for sections with multiple images
+const SectionImageSlider = ({ images = [], title = "" }) => {
   const [current, setCurrent] = useState(0);
 
   if (!images || images.length === 0) return null;
@@ -14,25 +14,36 @@ const ProjectSlider = ({ images = [] }) => {
   const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
   const prevSlide = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
 
+  // If only one image, show it without slider controls
+  if (images.length === 1) {
+    return (
+      <div className="relative w-full aspect-[16/9] bg-neutral-900 overflow-hidden rounded-sm">
+        <img
+          src={images[0]}
+          alt={title || "Project Screenshot"}
+          className="w-full h-full object-cover opacity-90"
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-full aspect-[16/9] bg-neutral-900 group overflow-hidden rounded-sm">
       <img
         src={images[current]}
-        alt={`Slide ${current + 1}`}
+        alt={`${title} - Slide ${current + 1}`}
         className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
       />
 
       {/* Navigation - Only visible on hover */}
-      {images.length > 1 && (
-        <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <button onClick={prevSlide} className="p-3 bg-black/50 backdrop-blur-sm text-white hover:bg-white hover:text-black transition-colors rounded-full">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-          </button>
-          <button onClick={nextSlide} className="p-3 bg-black/50 backdrop-blur-sm text-white hover:bg-white hover:text-black transition-colors rounded-full">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-          </button>
-        </div>
-      )}
+      <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <button onClick={prevSlide} className="p-3 bg-black/50 backdrop-blur-sm text-white hover:bg-white hover:text-black transition-colors rounded-full">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button onClick={nextSlide} className="p-3 bg-black/50 backdrop-blur-sm text-white hover:bg-white hover:text-black transition-colors rounded-full">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
 
       {/* Progress Bar */}
       <div className="absolute bottom-0 left-0 right-0 flex h-1 bg-neutral-800">
@@ -43,6 +54,94 @@ const ProjectSlider = ({ images = [] }) => {
           />
         ))}
       </div>
+    </div>
+  );
+};
+
+// 2. Detailed Screenshot Showcase
+const ProjectScreenshots = ({ images = [], imageDetails = [], projectTitle = "" }) => {
+  // If imageDetails has images arrays (new structure), use it; otherwise fall back to old structure
+  const sections = imageDetails && imageDetails.length > 0 && imageDetails[0].images
+    ? imageDetails // New structure: each detail has its own images array
+    : images.map((img, idx) => ({ // Old structure: map images to details
+      images: [img],
+      title: imageDetails?.[idx]?.title,
+      description: imageDetails?.[idx]?.description
+    }));
+
+  if (!sections || sections.length === 0) return null;
+
+  return (
+    <div className="space-y-16">
+      {sections.map((section, idx) => {
+        return (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: idx * 0.1 }}
+            className="group"
+          >
+            {/* Section Number & Title */}
+            <div className="flex items-baseline gap-4 mb-6">
+              <span className="text-xs font-mono text-neutral-600 tabular-nums">
+                {String(idx + 1).padStart(2, '0')}
+              </span>
+              {section.title && (
+                <h3 className="text-xl md:text-2xl font-medium text-neutral-200">
+                  {section.title}
+                </h3>
+              )}
+            </div>
+
+            {/* Two-Column Layout: Image + Features */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 mb-6">
+
+              {/* Left Column: Image(s) / Slider */}
+              <div className={section.features && section.features.length > 0 ? "lg:col-span-7" : "lg:col-span-12"}>
+                <SectionImageSlider
+                  images={section.images}
+                  title={section.title || `${projectTitle} Section ${idx + 1}`}
+                />
+              </div>
+
+              {/* Right Column: Feature List (if provided) */}
+              {section.features && section.features.length > 0 && (
+                <div className="lg:col-span-5 border-l border-neutral-800 lg:pl-8">
+                  <h4 className="text-sm font-mono text-neutral-500 uppercase tracking-widest mb-6">
+                    / Key Points
+                  </h4>
+                  <ul className="space-y-4">
+                    {section.features.map((feature, featureIdx) => (
+                      <li key={featureIdx} className="flex gap-4 items-start group/item">
+                        <span className="text-neutral-700 font-mono text-sm mt-1">
+                          {String(featureIdx + 1).padStart(2, '0')}
+                        </span>
+                        <span className="text-neutral-300 group-hover/item:text-white transition-colors">
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {/* Description */}
+            {section.description && (
+              <p className="text-neutral-400 leading-relaxed pl-8 md:pl-12 max-w-4xl">
+                {section.description}
+              </p>
+            )}
+
+            {/* Divider (except for last item) */}
+            {idx < sections.length - 1 && (
+              <div className="mt-16 border-b border-neutral-800/50" />
+            )}
+          </motion.div>
+        );
+      })}
     </div>
   );
 };
@@ -82,7 +181,7 @@ export default function ProjectShowcase() {
         <Link to="/" className="pointer-events-auto group flex items-center gap-2">
           <span className="text-xs font-mono hidden md:block opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2 group-hover:translate-x-0 duration-300">CLOSE</span>
           <div className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 group-hover:border-white transition-colors bg-black">
-             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" /></svg>
           </div>
         </Link>
       </header>
@@ -141,7 +240,7 @@ export default function ProjectShowcase() {
                   className="inline-flex items-center gap-3 border border-neutral-700 px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 group"
                 >
                   <span className="font-medium">Visit Live Site</span>
-                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"><path d="M7 17L17 7M17 7H7M17 7V17" /></svg>
                 </a>
               </div>
             )}
@@ -167,10 +266,12 @@ export default function ProjectShowcase() {
 
         {/* --- Visuals --- */}
         <div className="mb-32">
-          <ProjectSlider images={project.images ?? [project.img]} />
-          <p className="text-center text-neutral-600 text-xs font-mono mt-4 uppercase">
-            Project Visuals — {project.title}
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">Project Showcase</h2>
+          <ProjectScreenshots
+            images={project.images ?? [project.img]}
+            imageDetails={project.imageDetails}
+            projectTitle={project.title}
+          />
         </div>
 
         {/* --- Footer Navigation --- */}
@@ -179,7 +280,7 @@ export default function ProjectShowcase() {
             <Link to={`/projects/${prevProject.id}`} className="group flex-1">
               <span className="text-xs font-mono text-neutral-600 mb-2 block uppercase">Previous</span>
               <div className="flex items-center gap-4 text-neutral-400 group-hover:text-white transition-colors">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:-translate-x-2 transition-transform"><path d="M19 12H5M5 12L12 19M5 12L12 5"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:-translate-x-2 transition-transform"><path d="M19 12H5M5 12L12 19M5 12L12 5" /></svg>
                 <span className="text-2xl md:text-3xl font-bold">{prevProject.title}</span>
               </div>
             </Link>
@@ -190,7 +291,7 @@ export default function ProjectShowcase() {
               <span className="text-xs font-mono text-neutral-600 mb-2 block uppercase">Next Project</span>
               <div className="flex items-center justify-end gap-4 text-neutral-400 group-hover:text-white transition-colors">
                 <span className="text-2xl md:text-3xl font-bold">{nextProject.title}</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-2 transition-transform"><path d="M5 12H19M19 12L12 5M19 12L12 19"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-2 transition-transform"><path d="M5 12H19M19 12L12 5M19 12L12 19" /></svg>
               </div>
             </Link>
           ) : <div className="flex-1" />}

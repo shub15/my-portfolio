@@ -24,6 +24,74 @@ export const projectsData = [
     link: "https://github.com/shub15/flagr",
     img: flagr1,
     images: [flagr1, flagr2, flagr3, flagr4, flagr5, flagr6, flagr7, flagr8],
+    imageDetails: [
+      {
+        title: "Landing Page & Contract Upload",
+        description: "Clean, intuitive interface for uploading employment contracts. Users can drag-and-drop PDF files or paste contract text directly for instant analysis.",
+        images: [flagr1, flagr2],
+        features: [
+          "Drag-and-drop PDF upload",
+          "Text paste support",
+          "Real-time file validation",
+          "Responsive design"
+        ]
+      },
+      {
+        title: "Multi-Agent Analysis Dashboard",
+        description: "Real-time visualization of the three AI agents (Skeptic, Strategist, Auditor) working in parallel to analyze different aspects of the contract, powered by LangGraph orchestration.",
+        images: [flagr3],
+        features: [
+          "Real-time agent visualization",
+          "Parallel processing display",
+          "LangGraph orchestration",
+          "Progress tracking"
+        ]
+      },
+      {
+        title: "Risk Assessment & Safety Score",
+        description: "Comprehensive safety score calculation with visual breakdown of critical risks, missing clauses, and compliance issues identified against Indian Labour Law.",
+        images: [flagr4],
+        features: [
+          "0-100 safety score",
+          "Risk categorization",
+          "Visual breakdown charts",
+          "Compliance checklist"
+        ]
+      },
+      {
+        title: "Detailed Clause-by-Clause Review",
+        description: "In-depth analysis highlighting problematic clauses with severity indicators, legal explanations, and specific recommendations for negotiation.",
+        images: [flagr5],
+        features: [
+          "Severity indicators",
+          "Legal explanations",
+          "Negotiation tips",
+          "Highlighted problem areas"
+        ]
+      },
+      {
+        title: "RAG-Enhanced Recommendations",
+        description: "AI-powered suggestions backed by legal precedents and regulations retrieved from the Pinecone vector database, ensuring contextually accurate advice.",
+        images: [flagr6],
+        features: [
+          "Legal precedent citations",
+          "Regulation references",
+          "Vector database integration",
+          "Context-aware suggestions"
+        ]
+      },
+      {
+        title: "Contract Refinement & Export",
+        description: "Automated contract generation with side-by-side comparison and professional PDF reports with analysis summary, ready to share with legal advisors or employers.",
+        images: [flagr7, flagr8],
+        features: [
+          "Side-by-side comparison",
+          "PDF report generation",
+          "Automated rewriting",
+          "Export options"
+        ]
+      },
+    ],
     stack: ["React", "FastAPI", "LLM Orchestration", "LangGraph", "Pinecone (VectorDB)", "Postgres"],
     features: [
       "Multi-Agent Architecture (Skeptic, Strategist, Auditor)",
@@ -42,6 +110,19 @@ export const projectsData = [
     link: "https://github.com/robocon-kjsieit",
     img: roboconImage,
     images: [roboconImage],
+    imageDetails: [
+      {
+        title: "Holonomic Drive System",
+        description: "Custom-designed 3-wheel omnidirectional drive system enabling precise movement in any direction without rotation, crucial for basketball gameplay mechanics.",
+        images: [roboconImage],
+        features: [
+          "360° movement capability",
+          "Zero turning radius",
+          "Precise positioning control",
+          "High-torque DC motors"
+        ]
+      },
+    ],
     stack: ["STM32", "ESP32", "Arduino", "C/C++", "Pneumatics", "Control Systems"],
     features: [
       "3-Wheel Holonomic Drive System",
@@ -59,7 +140,20 @@ export const projectsData = [
     description: "Developed a decentralized document verification platform enabling institutions to issue tamper-proof digital certificates. Implemented smart contracts to ensure document integrity and prevent forgery without relying on centralized servers.",
     link: "https://github.com/shub15",
     img: "https://via.placeholder.com/600x400?text=Blockchain+Project",
-    images: [],
+    images: ["https://via.placeholder.com/600x400?text=Blockchain+Project"],
+    imageDetails: [
+      {
+        title: "Certificate Issuance",
+        description: "Institutions can issue tamper-proof digital certificates stored on the blockchain, ensuring authenticity and preventing forgery.",
+        images: ["https://via.placeholder.com/600x400?text=Blockchain+Project"],
+        features: [
+          "Smart contract deployment",
+          "Institutional dashboard",
+          "Batch certificate issuance",
+          "Immutable record storage"
+        ]
+      },
+    ],
     stack: ["Ethereum", "Solidity", "Hardhat", "MERN Stack", "Blockchain"],
     features: [
       "Tamper-proof Digital Certificates",
@@ -77,7 +171,20 @@ export const projectsData = [
     description: "Built a SaaS platform providing actionable insights from payment transactions to help businesses increase sales revenue. Delivers daily and monthly reports on peak hours analysis, customer purchasing patterns, and sales forecasting.",
     link: "https://github.com/shub15",
     img: "https://via.placeholder.com/600x400?text=RestroStats",
-    images: [],
+    images: ["https://via.placeholder.com/600x400?text=RestroStats"],
+    imageDetails: [
+      {
+        title: "Analytics Dashboard",
+        description: "Comprehensive business intelligence dashboard providing actionable insights from transaction data to boost revenue and optimize operations.",
+        images: ["https://via.placeholder.com/600x400?text=RestroStats"],
+        features: [
+          "Revenue analytics",
+          "Peak hour identification",
+          "Customer behavior tracking",
+          "ML-powered forecasting"
+        ]
+      },
+    ],
     stack: ["Python", "Flask", "React", "Tailwind CSS", "MySQL", "Scikit-Learn"],
     features: [
       "Peak Hour Sales Analysis",
@@ -96,6 +203,30 @@ export const projectsData = [
     link: "https://github.com/shub15/sms_data_analysis",
     img: "https://media.licdn.com/dms/image/v2/D4D22AQHmXcTFixMFRA/feedshare-shrink_2048_1536/B4DZUOq32FHkAo-/0/1739707875836?e=1756944000&v=beta&t=gkrW0uQ2JKp1Qn99SZhMEBvvLGwI48KpWZPEMLl7sik",
     images: [smsCertificate, smsPresentation],
+    imageDetails: [
+      {
+        title: "Hackathon Achievement",
+        description: "Award-winning project at Finathon hackathon demonstrating the potential of SMS data for financial literacy and insights.",
+        images: [smsCertificate],
+        features: [
+          "Hackathon winner certificate",
+          "Financial literacy focus",
+          "Real-world application",
+          "Team collaboration"
+        ]
+      },
+      {
+        title: "Data Analysis & Insights",
+        description: "Comprehensive analysis pipeline processing 100,000+ SMS records to extract actionable financial intelligence.",
+        images: [smsPresentation],
+        features: [
+          "Transaction categorization",
+          "Trend visualization",
+          "Spending pattern detection",
+          "EMI & loan tracking"
+        ]
+      },
+    ],
     stack: ["Pandas", "NumPy", "Scikit-Learn", "Matplotlib", "Seaborn"],
     features: [
       "Automated Transaction Categorization",
@@ -113,7 +244,20 @@ export const projectsData = [
     description: "Developed a browser extension backed by a Flask API to detect phishing URLs. Achieved 95% accuracy in identifying malicious links using Machine Learning techniques.",
     link: "https://github.com/shub15",
     img: "https://via.placeholder.com/600x400?text=Phishing+Detection",
-    images: [],
+    images: ["https://via.placeholder.com/600x400?text=Phishing+Detection"],
+    imageDetails: [
+      {
+        title: "Real-time URL Detection",
+        description: "Browser extension with ML backend that analyzes URLs in real-time to detect phishing attempts with 95% accuracy.",
+        images: ["https://via.placeholder.com/600x400?text=Phishing+Detection"],
+        features: [
+          "Instant URL scanning",
+          "95% detection accuracy",
+          "Visual threat indicators",
+          "One-click reporting"
+        ]
+      },
+    ],
     stack: ["Flask", "Pandas", "NumPy", "Scikit-Learn", "BeautifulSoup"],
     features: [
       "Real-time URL Scanning",
@@ -132,6 +276,19 @@ export const projectsData = [
     link: "https://github.com/shub15/cetcollegefinder",
     img: collegeFinderImage,
     images: [collegeFinderImage],
+    imageDetails: [
+      {
+        title: "College Search & Dashboard",
+        description: "Intuitive search interface allowing students to filter colleges based on entrance exam scores, cutoffs, location, and preferences with a personalized dashboard.",
+        images: [collegeFinderImage],
+        features: [
+          "Multi-criteria search",
+          "Real-time filtering",
+          "Personalized dashboard",
+          "Cutoff comparison"
+        ]
+      },
+    ],
     stack: ["Java", "Spring Boot", "Docker", "React", "MySQL", "JDBC", "TailwindCSS"],
     features: [
       "Cutoff-based Search Filters",
