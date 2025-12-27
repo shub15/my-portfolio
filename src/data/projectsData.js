@@ -10,8 +10,9 @@ import flagr5 from "../assets/flagr/flagr (5).png";
 import flagr6 from "../assets/flagr/flagr (6).png";
 import flagr7 from "../assets/flagr/flagr (7).png";
 import flagr8 from "../assets/flagr/flagr (8).png";
+import blockchainImage from "../assets/blockchain/blockchain (1).png";
+import blockchainImage2 from "../assets/blockchain/blockchain (2).png";
 // TODO: Import images for new projects below
-// import blockchainImage from "../assets/blockchain.png";
 // import restroImage from "../assets/restro.png";
 // import phishingImage from "../assets/phishing.png";
 
@@ -138,19 +139,30 @@ export const projectsData = [
     title: "Blockchain Document Verification",
     subtitle: "Decentralized Certificate Platform",
     description: "Developed a decentralized document verification platform enabling institutions to issue tamper-proof digital certificates. Implemented smart contracts to ensure document integrity and prevent forgery without relying on centralized servers.",
-    link: "https://github.com/shub15",
-    img: "https://via.placeholder.com/600x400?text=Blockchain+Project",
-    images: ["https://via.placeholder.com/600x400?text=Blockchain+Project"],
+    link: "https://github.com/shub15/blockchain-document",
+    img: blockchainImage,
+    images: [blockchainImage],
     imageDetails: [
       {
         title: "Certificate Issuance",
         description: "Institutions can issue tamper-proof digital certificates stored on the blockchain, ensuring authenticity and preventing forgery.",
-        images: ["https://via.placeholder.com/600x400?text=Blockchain+Project"],
+        images: [blockchainImage],
         features: [
           "Smart contract deployment",
           "Institutional dashboard",
           "Batch certificate issuance",
           "Immutable record storage"
+        ]
+      },
+      {
+        title: "User Dashboard",
+        description: "Users can view their certificates and verify them using the blockchain.",
+        images: [blockchainImage2],
+        features: [
+          "Certificate verification",
+          "User dashboard",
+          "Certificate history",
+          "Certificate download"
         ]
       },
     ],

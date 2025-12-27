@@ -57,23 +57,23 @@ const Navbar = () => {
     <>
       {/* Desktop Navbar - Unique Split Line Design */}
       <nav className="fixed top-0 left-0 right-0 z-50 hidden md:block pointer-events-none">
-        <div className="max-w-7xl mx-auto px-8 py-6">
+        <div className="mx-auto">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className={`
               relative pointer-events-auto transition-all duration-300
-              ${scrolled ? "bg-black/80 backdrop-blur-md border border-white/5 rounded-sm" : ""}
+              ${scrolled ? "bg-black/80 backdrop-blur-md rounded-sm" : ""}
             `}
           >
-            <div className="flex items-center justify-between px-6 py-4">
+            <div className="flex items-center justify-between px-20 py-4">
 
               {/* Logo/Name */}
-              <div className="flex items-center gap-3">
+              {/* <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-white" />
                 <span className="text-white font-mono text-sm tracking-wider">SHUBHAM</span>
-              </div>
+              </div> */}
 
               {/* Navigation Links with Split Line Effect */}
               <div className="flex items-center gap-1">

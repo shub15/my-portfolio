@@ -191,7 +191,7 @@ export default function ProjectShowcase() {
         {/* --- Hero Section --- */}
         <div className="border-b border-neutral-800 pb-12 mb-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
-            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter text-white leading-[0.9]">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.9]">
               {project.title}
             </h1>
             <span className="font-mono text-neutral-500 text-sm mb-2 block md:hidden">

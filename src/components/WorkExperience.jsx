@@ -6,7 +6,7 @@ const WorkExperience = () => {
         {
             id: 1,
             role: "React Native Developer Intern",
-            company: "Baya",
+            company: "Baya.biz",
             period: "Present",
             type: "Internship",
             description: "Developing cross-platform mobile applications using React Native, implementing responsive UI components and integrating backend APIs.",

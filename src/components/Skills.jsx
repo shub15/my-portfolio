@@ -1,40 +1,84 @@
 import React from "react";
-import { FaReact, FaJava, FaPython, FaJs, FaCloud, FaDatabase, FaMicrochip } from "react-icons/fa";
-import { SiSpringboot, SiMysql, SiTensorflow, SiArduino, SiEspressif } from "react-icons/si";
+import { FaReact, FaJava, FaPython, FaDocker, FaGitAlt, FaDatabase, FaCloud } from "react-icons/fa";
+import {
+  SiSpringboot,
+  SiMysql,
+  SiMongodb,
+  SiPostgresql,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiRedux,
+  SiExpress,
+  SiFlask,
+  SiFastapi,
+  SiGo,
+  SiPandas,
+  SiNumpy,
+  SiScikitlearn,
+  SiOpencv,
+  SiGooglecloud
+} from "react-icons/si";
+import { TbBrandReactNative } from "react-icons/tb";
 
 // Grouping skills makes the list scannable and professional
 const skillCategories = [
   {
-    title: "Core & Languages",
+    title: "Frontend & Mobile",
     items: [
-      { name: "Java", icon: <FaJava />, color: "hover:text-orange-500" },
-      { name: "Python", icon: <FaPython />, color: "hover:text-yellow-400" },
-      { name: "JavaScript", icon: <FaJs />, color: "hover:text-yellow-300" },
-      { name: "C++", icon: <FaMicrochip />, color: "hover:text-blue-500" }, // Assumed C++ given Arduino
+      { name: "React", icon: <FaReact />, color: "group-hover:text-cyan-400" },
+      { name: "React Native", icon: <TbBrandReactNative />, color: "group-hover:text-cyan-500" },
+      { name: "Next.js", icon: <SiNextdotjs />, color: "group-hover:text-white" },
+      { name: "TypeScript", icon: <SiTypescript />, color: "group-hover:text-blue-500" },
+      { name: "Tailwind CSS", icon: <SiTailwindcss />, color: "group-hover:text-teal-400" },
+      { name: "Redux", icon: <SiRedux />, color: "group-hover:text-purple-500" },
+      { name: "Zustand", icon: <FaDatabase />, color: "group-hover:text-amber-600" },
     ],
   },
   {
-    title: "Hardware & IoT",
+    title: "Backend & APIs",
     items: [
-      { name: "Arduino", icon: <SiArduino />, color: "hover:text-teal-500" },
-      { name: "ESP 32", icon: <SiEspressif />, color: "hover:text-red-500" },
-      { name: "Embedded C", icon: <FaMicrochip />, color: "hover:text-gray-400" },
+      { name: "Spring Boot", icon: <SiSpringboot />, color: "group-hover:text-green-500" },
+      { name: "Quarkus", icon: <FaJava />, color: "group-hover:text-blue-600" },
+      { name: "FastAPI", icon: <SiFastapi />, color: "group-hover:text-teal-500" },
+      { name: "Flask", icon: <SiFlask />, color: "group-hover:text-gray-300" },
+      { name: "Express.js", icon: <SiExpress />, color: "group-hover:text-yellow-400" },
     ],
   },
   {
-    title: "Backend & Data",
+    title: "Languages",
     items: [
-      { name: "Spring Boot", icon: <SiSpringboot />, color: "hover:text-green-500" },
-      { name: "MySQL", icon: <SiMysql />, color: "hover:text-blue-400" },
-      { name: "Cloud", icon: <FaCloud />, color: "hover:text-sky-300" },
+      { name: "Java", icon: <FaJava />, color: "group-hover:text-orange-500" },
+      { name: "Python", icon: <FaPython />, color: "group-hover:text-yellow-400" },
+      { name: "Go", icon: <SiGo />, color: "group-hover:text-cyan-400" },
+      { name: "JavaScript", icon: <FaReact />, color: "group-hover:text-yellow-300" },
     ],
   },
   {
-    title: "Intelligence",
+    title: "Data Science & ML",
     items: [
-      { name: "TensorFlow", icon: <SiTensorflow />, color: "hover:text-orange-400" },
-      { name: "Machine Learning", icon: <FaDatabase />, color: "hover:text-purple-400" },
-      { name: "Data Science", icon: <FaReact />, color: "hover:text-cyan-400" }, // Using React icon as placeholder or swap
+      { name: "Pandas", icon: <SiPandas />, color: "group-hover:text-blue-400" },
+      { name: "NumPy", icon: <SiNumpy />, color: "group-hover:text-sky-500" },
+      { name: "Scikit-learn", icon: <SiScikitlearn />, color: "group-hover:text-orange-400" },
+      { name: "OpenCV", icon: <SiOpencv />, color: "group-hover:text-green-500" },
+    ],
+  },
+  {
+    title: "Databases",
+    items: [
+      { name: "PostgreSQL", icon: <SiPostgresql />, color: "group-hover:text-blue-400" },
+      { name: "MongoDB", icon: <SiMongodb />, color: "group-hover:text-green-500" },
+      { name: "MySQL", icon: <SiMysql />, color: "group-hover:text-blue-500" },
+      { name: "Vector Database", icon: <FaDatabase />, color: "group-hover:text-purple-400" },
+    ],
+  },
+  {
+    title: "DevOps & Tools",
+    items: [
+      { name: "Docker", icon: <FaDocker />, color: "group-hover:text-blue-500" },
+      { name: "GCP", icon: <SiGooglecloud />, color: "group-hover:text-red-500" },
+      { name: "Git", icon: <FaGitAlt />, color: "group-hover:text-orange-600" },
+      { name: "Postman", icon: <FaCloud />, color: "group-hover:text-orange-500" },
     ],
   },
 ];
@@ -43,7 +87,7 @@ const Skills = () => {
   return (
     <section id="skills" className="py-24 bg-black text-white relative">
       <div className="container mx-auto px-6 md:px-12 lg:px-24">
-        
+
         {/* Section Header */}
         <div className="mb-16 border-b border-neutral-800 pb-8 flex flex-col md:flex-row justify-between items-end gap-4">
           <div>
@@ -85,7 +129,7 @@ const Skills = () => {
                     <div className={`text-2xl text-neutral-500 transition-colors duration-300 ${skill.color}`}>
                       {skill.icon}
                     </div>
-                    
+
                     {/* Text */}
                     <div className="flex flex-col">
                       <span className="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors">
@@ -98,12 +142,12 @@ const Skills = () => {
             </div>
           ))}
         </div>
-        
+
         {/* Decorative Footer Line */}
         <div className="mt-20 flex items-center gap-4 text-neutral-800">
-           <div className="h-[1px] flex-1 bg-neutral-900"></div>
-           <span className="text-xs font-mono uppercase tracking-widest">End of Spec</span>
-           <div className="h-[1px] flex-1 bg-neutral-900"></div>
+          <div className="h-[1px] flex-1 bg-neutral-900"></div>
+          <span className="text-xs font-mono uppercase tracking-widest">End of Spec</span>
+          <div className="h-[1px] flex-1 bg-neutral-900"></div>
         </div>
 
       </div>
