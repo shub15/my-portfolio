@@ -135,6 +135,101 @@ export const projectsData = [
     featureHeading: "Precision Robotics & Embedded Control",
   },
   {
+    id: "vitalquest",
+    title: "VitalQuest",
+    subtitle: "Gamified Health & Wellness App",
+    description: "A mobile application that transforms healthy habits into an engaging RPG experience. Track daily activities like walking, meditating, and hydration while earning XP to level up your personalized character. Built with React Native and gamification mechanics to make wellness fun and sustainable.",
+    link: "https://github.com/shub15/vitalquest",
+    img: "https://via.placeholder.com/600x400?text=VitalQuest",
+    images: ["https://via.placeholder.com/600x400?text=VitalQuest"],
+    imageDetails: [
+      {
+        title: "Gamified Wellness Tracking",
+        description: "Transform daily health activities into quests and earn XP for your RPG character. Track steps, meditation, water intake, and more while progressing through levels.",
+        images: ["https://via.placeholder.com/600x400?text=VitalQuest"],
+        features: [
+          "Quest-based activity tracking",
+          "Character progression system",
+          "XP and leveling mechanics",
+          "Daily habit streaks"
+        ]
+      },
+    ],
+    stack: ["TypeScript", "React Native", "Python", "Kotlin", "Mobile Development"],
+    features: [
+      "RPG Character Progression",
+      "Daily Quest System",
+      "Health Activity Tracking",
+      "Gamification Mechanics",
+      "Cross-platform Mobile App",
+    ],
+    featureHeading: "Make Wellness Fun Through Gaming",
+  },
+  {
+    id: "paisaflow",
+    title: "PaisaFlow",
+    subtitle: "SMS-Based Expense Tracker",
+    description: "An intelligent expense tracking system that automatically analyzes SMS messages from banks to categorize transactions, track spending patterns, and provide financial insights. Uses Python backend with Celery for asynchronous processing and MongoDB for data storage.",
+    link: "https://github.com/shub15/paisaflow",
+    img: "https://via.placeholder.com/600x400?text=PaisaFlow",
+    images: ["https://via.placeholder.com/600x400?text=PaisaFlow"],
+    imageDetails: [
+      {
+        title: "Automated Transaction Analysis",
+        description: "Automatically parse and categorize bank SMS messages to track income and expenses without manual entry. Get insights into spending patterns and financial trends.",
+        images: ["https://via.placeholder.com/600x400?text=PaisaFlow"],
+        features: [
+          "SMS parsing automation",
+          "Transaction categorization",
+          "Spending analytics",
+          "Income vs expense tracking"
+        ]
+      },
+    ],
+    stack: ["Python", "Celery", "MongoDB", "Docker", "SMS Processing"],
+    features: [
+      "Automated SMS Parsing",
+      "Transaction Categorization",
+      "Expense Trend Analysis",
+      "Asynchronous Processing",
+      "Financial Insights Dashboard",
+    ],
+    featureHeading: "Effortless Expense Tracking from SMS",
+  },
+  {
+    id: "axiom-station",
+    title: "Axiom Station: AI Agent Workflow Platform",
+    subtitle: "Lovable for AI Agents",
+    description: "A comprehensive platform for building, deploying, and managing AI agent workflows effortlessly. Reef enables users to create intelligent multi-agent systems through natural language interfaces and visual workflow builders. Features a Next.js frontend and FastAPI backend (Axiom Factory) for containerized agent deployment.",
+    link: "https://github.com/shub15/axiom-station-final",
+    img: "https://via.placeholder.com/600x400?text=Axiom+Station",
+    images: ["https://via.placeholder.com/600x400?text=Axiom+Station"],
+    imageDetails: [
+      {
+        title: "AI Agent Workflow Platform",
+        description: "Build complex multi-agent systems through conversational AI and visual workflow design. Features real-time monitoring, containerized deployment, and extensive tool integration.",
+        images: ["https://via.placeholder.com/600x400?text=Axiom+Station"],
+        features: [
+          "Natural language workflow creation",
+          "Visual workflow designer",
+          "Real-time monitoring & analytics",
+          "Docker-based agent deployment"
+        ]
+      },
+    ],
+    stack: ["TypeScript", "Next.js", "Python", "FastAPI", "Docker", "Firebase", "Kotlin"],
+    features: [
+      "Natural Language Workflow Creation",
+      "Visual Workflow Designer",
+      "Firebase Authentication",
+      "Real-time Trace Viewing",
+      "Containerized Agent Deployment",
+      "Multi-Agent Orchestration",
+      "Tool Integration via Arcade",
+    ],
+    featureHeading: "Build AI Agents Through Conversation",
+  },
+  {
     id: "blockchain-verification",
     title: "Blockchain Document Verification",
     subtitle: "Decentralized Certificate Platform",
@@ -310,5 +405,67 @@ export const projectsData = [
       "Responsive UI Design",
     ],
     featureHeading: "Student can prepare customized list of colleges",
+  },
+  {
+    id: "iot-water-monitoring",
+    title: "IoT Water Quality Monitor",
+    subtitle: "Real-time Water Analysis System",
+    description: "An IoT-based water quality monitoring system using Arduino and various sensors to measure pH, turbidity, temperature, and other water quality parameters. Provides real-time data collection and analysis for ensuring safe drinking water.",
+    link: "https://github.com/shub15/iot-water-monitoring",
+    img: "https://via.placeholder.com/600x400?text=Water+Monitor",
+    images: ["https://via.placeholder.com/600x400?text=Water+Monitor"],
+    imageDetails: [
+      {
+        title: "Real-Time Water Quality Sensing",
+        description: "Monitor water quality parameters in real-time using IoT sensors. Track pH levels, turbidity, temperature, and contamination to ensure water safety.",
+        images: ["https://via.placeholder.com/600x400?text=Water+Monitor"],
+        features: [
+          "Multi-sensor integration",
+          "Real-time monitoring",
+          "Water quality analysis",
+          "Arduino-based system"
+        ]
+      },
+    ],
+    stack: ["C++", "Arduino", "IoT", "Embedded Systems", "Sensors"],
+    features: [
+      "Real-time Water Quality Monitoring",
+      "Multi-Parameter Sensing",
+      "IoT Data Collection",
+      "Arduino Integration",
+      "Safety Alert System",
+    ],
+    featureHeading: "Ensuring Safe Water Through IoT",
+  },
+  {
+    id: "smart-agriculture",
+    title: "Smart Agriculture System",
+    subtitle: "IoT-Enabled Farming Solution",
+    description: "An intelligent agriculture system leveraging IoT sensors and automation to optimize farming practices. Monitors soil moisture, temperature, humidity, and automates irrigation to improve crop yield and resource efficiency.",
+    link: "https://github.com/shub15/smart-agriculture",
+    img: "https://via.placeholder.com/600x400?text=Smart+Agriculture",
+    images: ["https://via.placeholder.com/600x400?text=Smart+Agriculture"],
+    imageDetails: [
+      {
+        title: "Automated Farming Intelligence",
+        description: "IoT-based system that monitors environmental conditions and automates irrigation. Optimizes water usage and improves crop health through data-driven decisions.",
+        images: ["https://via.placeholder.com/600x400?text=Smart+Agriculture"],
+        features: [
+          "Soil moisture monitoring",
+          "Automated irrigation",
+          "Environmental sensing",
+          "Resource optimization"
+        ]
+      },
+    ],
+    stack: ["C++", "Arduino", "IoT", "Embedded Systems", "Automation"],
+    features: [
+      "Automated Irrigation Control",
+      "Soil Moisture Monitoring",
+      "Environmental Data Collection",
+      "Resource Optimization",
+      "IoT Sensor Integration",
+    ],
+    featureHeading: "Precision Farming Through IoT",
   },
 ];

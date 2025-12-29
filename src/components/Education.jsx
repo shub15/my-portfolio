@@ -1,53 +1,27 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const WorkExperience = () => {
-    const experiences = [
+const Education = () => {
+    const education = [
         {
             id: 1,
-            role: "React Native Developer Intern",
-            company: "Baya.biz",
-            period: "Aug 2024 - Present",
-            type: "Internship",
-            description: "React Native mobile app developer for AI SaaS which helps filmmakers visualize their scripts through audiobook-style narration with voice acting.",
-            achievements: [
-                "Built secure authentication with OAuth (Supabase) and encryption (DRM)",
-                "Integrated SQLite database for offline data management",
-                "Handled UI/UX designs and payment gateway integration",
-                "Implemented API data handling and state management"
-            ]
-        },
-        {
-            id: 2,
-            role: "Programmer Intern",
-            company: "Robocon KJSIT",
-            period: "Aug 2024 - Present",
-            type: "Internship",
-            description: "Implemented embedded control systems, integrating various motors, actuators, and sensors for precise robotic operations.",
-            achievements: [
-                "Designed embedded control architecture for robotic systems",
-                "Integrated motors, actuators, and sensors for precise operations",
-                "Implemented STM32 & ESP32 microcontroller systems",
-                "Contributed to team's 16th rank out of 40 teams nationally"
-            ]
-        },
-        {
-            id: 3,
-            role: "Core Member",
-            company: "Institute of Engineering and Technology, Committee",
-            period: "2024 - 2025",
-            type: "Leadership",
-            description: "Managed technical events in college techfest.",
-            achievements: [
-                "Coordinated with the technical team",
-                "Organized technical events",
-                "Collaborated with companies"
+            degree: "Bachelor of Technology in Information Technology",
+            institution: "K. J. Somaiya Institute of Technology",
+            location: "Mumbai, India",
+            period: "Aug 2023 - June 2027",
+            cgpa: "9.29 CGPA",
+            type: "Expected",
+            highlights: [
+                "Specialized in Full-Stack Development and Mobile Applications",
+                "Active member of Robocon KJSIT and IET Committee",
+                "Focused on AI/ML, Cloud Computing, and System Design",
+                "Participated in national-level robotics competitions"
             ]
         }
     ];
 
     return (
-        <section id="experience" className="relative bg-black text-white py-24 md:py-32 overflow-hidden selection:bg-white selection:text-black">
+        <section id="education" className="relative bg-black text-white py-24 md:py-32 overflow-hidden selection:bg-white selection:text-black">
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-1/4 -left-32 w-64 h-64 bg-white/[0.01] rounded-full blur-3xl" />
@@ -64,32 +38,27 @@ const WorkExperience = () => {
                     className="mb-16"
                 >
                     <div className="flex items-baseline gap-4 mb-4">
-                        <span className="text-xs font-mono text-neutral-400 tabular-nums">02</span>
+                        <span className="text-xs font-mono text-neutral-400 tabular-nums">03</span>
                         <h2 className="text-4xl md:text-5xl font-light text-neutral-200">
-                            Work Experience
+                            Education
                         </h2>
                     </div>
                     <p className="text-neutral-500 font-mono text-sm pl-8 md:pl-12">
-                        / Professional Journey
+                        / Academic Background
                     </p>
                 </motion.div>
 
-                {/* Experience Timeline */}
+                {/* Education Timeline */}
                 <div className="space-y-12">
-                    {experiences.map((exp, index) => (
+                    {education.map((edu, index) => (
                         <motion.div
-                            key={exp.id}
+                            key={edu.id}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             className="group relative"
                         >
-                            {/* Timeline Line (except for last item) */}
-                            {index < experiences.length - 1 && (
-                                <div className="absolute left-8 md:left-12 top-12 bottom-0 w-px bg-neutral-800" />
-                            )}
-
                             <div className="flex gap-8 md:gap-12">
                                 {/* Timeline Dot */}
                                 <div className="flex-shrink-0">
@@ -102,27 +71,27 @@ const WorkExperience = () => {
                                     <div className="mb-6">
                                         <div className="flex flex-wrap items-baseline gap-3 mb-2">
                                             <h3 className="text-xl md:text-2xl font-medium text-neutral-200">
-                                                {exp.company}
+                                                {edu.degree}
                                             </h3>
                                             <span className="text-xs font-mono text-neutral-400 px-2 py-1 border border-neutral-800 rounded">
-                                                {exp.type}
+                                                {edu.type}
                                             </span>
                                         </div>
-                                        <div className="flex flex-wrap items-center gap-3 text-neutral-400">
-                                            <span className="font-medium">{exp.role}</span>
+                                        <div className="flex flex-wrap items-center gap-3 text-neutral-400 mb-2">
+                                            <span className="font-medium">{edu.institution}</span>
                                             <span className="text-neutral-500">•</span>
-                                            <span className="text-sm font-mono">{exp.period}</span>
+                                            <span className="text-sm">{edu.location}</span>
+                                        </div>
+                                        <div className="flex flex-wrap items-center gap-3 text-neutral-400">
+                                            <span className="text-sm font-mono">{edu.period}</span>
+                                            <span className="text-neutral-500">•</span>
+                                            <span className="text-sm font-mono font-medium text-white">{edu.cgpa}</span>
                                         </div>
                                     </div>
 
-                                    {/* Description */}
-                                    <p className="text-neutral-400 leading-relaxed text-lg mb-6 max-w-3xl">
-                                        {exp.description}
-                                    </p>
-
-                                    {/* Achievements */}
+                                    {/* Highlights */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        {exp.achievements.map((achievement, idx) => (
+                                        {edu.highlights.map((highlight, idx) => (
                                             <div
                                                 key={idx}
                                                 className="flex items-start gap-3 group/item"
@@ -131,7 +100,7 @@ const WorkExperience = () => {
                                                     {String(idx + 1).padStart(2, '0')}
                                                 </span>
                                                 <span className="text-neutral-300 text-sm group-hover/item:text-white transition-colors">
-                                                    {achievement}
+                                                    {highlight}
                                                 </span>
                                             </div>
                                         ))}
@@ -146,4 +115,4 @@ const WorkExperience = () => {
     );
 };
 
-export default WorkExperience;
+export default Education;

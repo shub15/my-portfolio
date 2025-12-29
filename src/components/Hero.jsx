@@ -9,7 +9,7 @@ const resumeLink = import.meta.env.VITE_RESUME_LINK;
 const Hero = () => {
   return (
     <section id="hero" className="relative bg-black text-white min-h-screen flex items-center pt-32 md:pt-0 overflow-hidden selection:bg-white selection:text-black">
-      
+
       {/* --- Ambient Background Effects --- */}
       {/* Blue Glow Top Left */}
       <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
@@ -18,7 +18,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 md:px-12 lg:px-24 relative z-10">
         <div className="flex flex-col-reverse lg:flex-row items-center lg:items-center justify-between gap-12 lg:gap-0">
-          
+
           {/* --- Left Column: Typography --- */}
           <div className="flex-1 text-center lg:text-left">
 
@@ -41,20 +41,20 @@ const Hero = () => {
               className="space-y-6 text-left"
             >
               <h2 className="text-xl md:text-2xl font-light text-neutral-300">
-                Full-Stack Developer <span className="text-neutral-600 mx-2">/</span> Mobile & Backend
+                Full-Stack Developer <span className="text-neutral-400 mx-2">/</span> Mobile & Backend
               </h2>
-              
+
               <p className="text-neutral-400 leading-relaxed mx-auto lg:mx-0 text-base md:text-xl">
-              I am at Third Year of my college, pursuing <span className="text-white">B.Tech in Information Technology</span> from{" "}
-              <span className="text-white">Mumbai University</span>.
-              Currently interning as <span className="text-white">React Native dev</span> at{" "}
-              <span className="text-white">Baya.biz</span>.
-              <div className="py-2"/>
-              I have <span className="text-white">6 month</span> of work experience in <span className="text-white">mobile app development</span>. I have done internships, worked with startups. I have helped build <span className="text-white">embedded control system</span> for <span className="text-white">Robocon</span>, a national level robotics competition hosted by IIT Delhi, where our team <span className="text-white">ranked 16th</span> nationally.
-              <div className="py-2"/>
-              I have participated in <span className="text-white">6+</span> hackathons and <span className="text-white">won 1</span>. Lead end-to-end <span className="text-white">backend, frontend, mobile app and server deployment </span> with high scalibilty.
-              <div className="py-2"/>
-              I have studied <span className="text-white">Computer Networks, DBMS, OS, DSA, Machine Learning, AI, Cloud Computing, Web Development, DevOps</span> as my college subjects.
+                I am a Third Year college student, pursuing <span className="text-white">B.Tech in Information Technology</span> from{" "}
+                <span className="text-white">Mumbai University</span>.
+                Currently interning as <span className="text-white">React Native dev</span> at{" "}
+                <span className="text-white">Baya.biz</span>.
+                <div className="py-2" />
+                I have <span className="text-white">6 month</span> of work experience in <span className="text-white">mobile app development</span>. I have done internships, worked with startups. I have helped build <span className="text-white">embedded control system</span> for <span className="text-white">Robocon</span>, a national level robotics competition hosted by IIT Delhi, where our team <span className="text-white">ranked 16th</span> nationally.
+                <div className="py-2" />
+                I have participated in <span className="text-white">6+</span> hackathons and <span className="text-white">won 1</span>. Lead end-to-end <span className="text-white">backend, frontend, mobile app and server deployment </span> with high scalibilty.
+                <div className="py-2" />
+                {/* I have studied <span className="text-white">Computer Networks, DBMS, OS, DSA, Machine Learning, AI, Cloud Computing, Web Development, DevOps</span> as my college subjects. */}
               </p>
               <p>Mumbai, India</p>
             </motion.div>
@@ -72,7 +72,7 @@ const Hero = () => {
               >
                 View Works
               </a>
-              
+
               <a
                 href={resumeLink}
                 target="_blank"
@@ -91,8 +91,8 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
-               <SocialLink href="https://github.com/shub15" icon={<FaGithub />} label="GitHub" />
-               <SocialLink href="https://www.linkedin.com/in/maityshub/" icon={<FaLinkedin />} label="LinkedIn" />
+              <SocialLink href="https://github.com/shub15" icon={<FaGithub />} label="GitHub" />
+              <SocialLink href="https://www.linkedin.com/in/maityshub/" icon={<FaLinkedin />} label="LinkedIn" />
             </motion.div>
           </div>
 
@@ -107,7 +107,7 @@ const Hero = () => {
               {/* Spinning Border Effect */}
               {/* <div className="absolute inset-0 rounded-full border border-neutral-800 group-hover:border-neutral-600 transition-colors duration-500 scale-110" />
               <div className="absolute inset-0 rounded-full border border-neutral-800/50 scale-125 border-dashed animate-[spin_10s_linear_infinite]" /> */}
-              
+
               {/* Image Container */}
               <div className="absolute inset-0 rounded-full overflow-hidden border-2 border-neutral-900 bg-neutral-900 z-10">
                 <img
@@ -121,15 +121,15 @@ const Hero = () => {
 
         </div>
       </div>
-      
+
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
       >
-        <span className="text-[10px] uppercase tracking-widest text-neutral-600">Scroll</span>
+        <span className="text-[10px] uppercase tracking-widest text-neutral-400">Scroll</span>
         <div className="w-[1px] h-12 bg-gradient-to-b from-neutral-600 to-transparent" />
       </motion.div>
 

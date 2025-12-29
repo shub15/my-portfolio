@@ -17,7 +17,7 @@ const Projects = () => {
             </p>
           </div>
           {/* Optional: Project counter */}
-          <span className="hidden md:block font-mono text-neutral-600">
+          <span className="hidden md:block font-mono text-neutral-400">
             [{projectsData.length}]
           </span>
         </div>
@@ -47,7 +47,7 @@ const Projects = () => {
 
                 {/* Left Side: Number & Title */}
                 <div className="flex items-baseline gap-6 md:w-2/3 z-10">
-                  <span className="text-neutral-700 font-mono text-sm hidden md:block group-hover:text-neutral-400 transition-colors">
+                  <span className="text-neutral-500 font-mono text-sm hidden md:block group-hover:text-neutral-400 transition-colors">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <div className="flex flex-col gap-2">

@@ -61,7 +61,7 @@ export default function ErrorBoundary() {
                             transition={{ delay: 0.5 }}
                             className="mt-8 p-6 bg-neutral-900/50 border border-neutral-800 rounded-lg text-left"
                         >
-                            <p className="text-xs font-mono text-neutral-600 uppercase tracking-wider mb-2">
+                            <p className="text-xs font-mono text-neutral-400 uppercase tracking-wider mb-2">
                                 Error Details
                             </p>
                             <p className="text-sm text-neutral-400 font-mono break-all">
@@ -123,7 +123,7 @@ export default function ErrorBoundary() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.7 }}
-                    className="text-xs text-neutral-600 font-mono pt-12"
+                    className="text-xs text-neutral-400 font-mono pt-12"
                 >
                     If this issue persists, please refresh the page or contact support
                 </motion.p>

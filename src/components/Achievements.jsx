@@ -1,53 +1,42 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const WorkExperience = () => {
-    const experiences = [
+const Achievements = () => {
+    const achievements = [
         {
             id: 1,
-            role: "React Native Developer Intern",
-            company: "Baya.biz",
-            period: "Aug 2024 - Present",
-            type: "Internship",
-            description: "React Native mobile app developer for AI SaaS which helps filmmakers visualize their scripts through audiobook-style narration with voice acting.",
-            achievements: [
-                "Built secure authentication with OAuth (Supabase) and encryption (DRM)",
-                "Integrated SQLite database for offline data management",
-                "Handled UI/UX designs and payment gateway integration",
-                "Implemented API data handling and state management"
+            title: "Robocon 2025",
+            organization: "ABU Robocon National Competition",
+            achievement: "16th / 40 Teams",
+            date: "July 2025",
+            type: "Competition",
+            description: "ABU Robocon India is the national qualifying competition for the prestigious Asia-Pacific Broadcasting Union (ABU) Robotic Contest, where Indian engineering students build robots to tackle specific themes (like basketball or traditional games) for national and international glory, organized by Doordarshan (DD) and IIT Delhi (IITD)/Prasar Bharati with teams from top engineering colleges showcasing their innovation, with the winner representing India globally.",
+            highlights: [
+                "Embedded control systems implementation",
+                "3-wheel holonomic drive mechanism",
+                "Advanced sensor integration",
+                "National-level competition ranking"
             ]
         },
         {
             id: 2,
-            role: "Programmer Intern",
-            company: "Robocon KJSIT",
-            period: "Aug 2024 - Present",
-            type: "Internship",
-            description: "Implemented embedded control systems, integrating various motors, actuators, and sensors for precise robotic operations.",
-            achievements: [
-                "Designed embedded control architecture for robotic systems",
-                "Integrated motors, actuators, and sensors for precise operations",
-                "Implemented STM32 & ESP32 microcontroller systems",
-                "Contributed to team's 16th rank out of 40 teams nationally"
-            ]
-        },
-        {
-            id: 3,
-            role: "Core Member",
-            company: "Institute of Engineering and Technology, Committee",
-            period: "2024 - 2025",
-            type: "Leadership",
-            description: "Managed technical events in college techfest.",
-            achievements: [
-                "Coordinated with the technical team",
-                "Organized technical events",
-                "Collaborated with companies"
+            title: "Finathon Hackathon",
+            organization: "Thakur College of Polytechnic",
+            achievement: "Winner",
+            date: "January 2025",
+            type: "Hackathon",
+            description: "Analyzed 100k+ daily SMS data to extract financial information related to credit & debit transactions, loans, EMI amounts, user spending & earning trends.",
+            highlights: [
+                "First place winner",
+                "Financial technology solution",
+                "Real-world problem solving",
+                "Team collaboration and leadership"
             ]
         }
     ];
 
     return (
-        <section id="experience" className="relative bg-black text-white py-24 md:py-32 overflow-hidden selection:bg-white selection:text-black">
+        <section id="achievements" className="relative bg-black text-white py-24 md:py-32 overflow-hidden selection:bg-white selection:text-black">
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-1/4 -left-32 w-64 h-64 bg-white/[0.01] rounded-full blur-3xl" />
@@ -64,21 +53,21 @@ const WorkExperience = () => {
                     className="mb-16"
                 >
                     <div className="flex items-baseline gap-4 mb-4">
-                        <span className="text-xs font-mono text-neutral-400 tabular-nums">02</span>
+                        <span className="text-xs font-mono text-neutral-400 tabular-nums">04</span>
                         <h2 className="text-4xl md:text-5xl font-light text-neutral-200">
-                            Work Experience
+                            Achievements
                         </h2>
                     </div>
                     <p className="text-neutral-500 font-mono text-sm pl-8 md:pl-12">
-                        / Professional Journey
+                        / Notable Accomplishments
                     </p>
                 </motion.div>
 
-                {/* Experience Timeline */}
+                {/* Achievements Timeline */}
                 <div className="space-y-12">
-                    {experiences.map((exp, index) => (
+                    {achievements.map((achievement, index) => (
                         <motion.div
-                            key={exp.id}
+                            key={achievement.id}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
@@ -86,7 +75,7 @@ const WorkExperience = () => {
                             className="group relative"
                         >
                             {/* Timeline Line (except for last item) */}
-                            {index < experiences.length - 1 && (
+                            {index < achievements.length - 1 && (
                                 <div className="absolute left-8 md:left-12 top-12 bottom-0 w-px bg-neutral-800" />
                             )}
 
@@ -102,27 +91,31 @@ const WorkExperience = () => {
                                     <div className="mb-6">
                                         <div className="flex flex-wrap items-baseline gap-3 mb-2">
                                             <h3 className="text-xl md:text-2xl font-medium text-neutral-200">
-                                                {exp.company}
+                                                {achievement.title}
                                             </h3>
                                             <span className="text-xs font-mono text-neutral-400 px-2 py-1 border border-neutral-800 rounded">
-                                                {exp.type}
+                                                {achievement.type}
                                             </span>
                                         </div>
-                                        <div className="flex flex-wrap items-center gap-3 text-neutral-400">
-                                            <span className="font-medium">{exp.role}</span>
+                                        <div className="flex flex-wrap items-center gap-3 text-neutral-400 mb-2">
+                                            <span className="font-medium">{achievement.organization}</span>
                                             <span className="text-neutral-500">•</span>
-                                            <span className="text-sm font-mono">{exp.period}</span>
+                                            <span className="text-sm font-mono">{achievement.date}</span>
+                                        </div>
+                                        <div className="inline-flex items-center gap-2 mt-2">
+                                            <span className="text-xs text-neutral-500">Achievement:</span>
+                                            <span className="text-lg font-bold text-white">{achievement.achievement}</span>
                                         </div>
                                     </div>
 
                                     {/* Description */}
                                     <p className="text-neutral-400 leading-relaxed text-lg mb-6 max-w-3xl">
-                                        {exp.description}
+                                        {achievement.description}
                                     </p>
 
-                                    {/* Achievements */}
+                                    {/* Highlights */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        {exp.achievements.map((achievement, idx) => (
+                                        {achievement.highlights.map((highlight, idx) => (
                                             <div
                                                 key={idx}
                                                 className="flex items-start gap-3 group/item"
@@ -131,7 +124,7 @@ const WorkExperience = () => {
                                                     {String(idx + 1).padStart(2, '0')}
                                                 </span>
                                                 <span className="text-neutral-300 text-sm group-hover/item:text-white transition-colors">
-                                                    {achievement}
+                                                    {highlight}
                                                 </span>
                                             </div>
                                         ))}
@@ -146,4 +139,5 @@ const WorkExperience = () => {
     );
 };
 
-export default WorkExperience;
+export default Achievements;
+

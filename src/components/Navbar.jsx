@@ -7,8 +7,10 @@ import { IoClose } from "react-icons/io5";
 const NAV_LINKS = [
   { href: "#hero", label: "Home" },
   { href: "#experience", label: "Experience" },
+  { href: "#education", label: "Education" },
   { href: "#projects", label: "Work" },
   { href: "#skills", label: "Expertise" },
+  { href: "#achievements", label: "Achievements" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -94,7 +96,7 @@ const Navbar = () => {
                           {/* Number */}
                           <span className={`
                             font-mono text-xs tabular-nums transition-colors duration-200
-                            ${isActive ? "text-white" : "text-neutral-600 group-hover:text-neutral-400"}
+                            ${isActive ? "text-white" : "text-neutral-400 group-hover:text-neutral-300"}
                           `}>
                             {String(index + 1).padStart(2, '0')}
                           </span>
@@ -102,7 +104,7 @@ const Navbar = () => {
                           {/* Vertical Divider */}
                           <div className={`
                             w-px h-4 transition-all duration-200
-                            ${isActive ? "bg-white" : "bg-neutral-700 group-hover:bg-neutral-500"}
+                            ${isActive ? "bg-white" : "bg-neutral-500 group-hover:bg-neutral-400"}
                           `} />
 
                           {/* Label */}
@@ -131,7 +133,7 @@ const Navbar = () => {
               {/* Right Indicator */}
               <div className="flex items-center gap-3">
                 <div className="w-12 h-px bg-neutral-800" />
-                <div className="w-1 h-1 bg-neutral-600" />
+                <div className="w-1 h-1 bg-neutral-400" />
               </div>
             </div>
           </motion.div>
@@ -202,11 +204,11 @@ const Navbar = () => {
                         >
                           <span className={`
                             font-mono text-xs tabular-nums
-                            ${isActive ? "text-black" : "text-neutral-600"}
+                            ${isActive ? "text-black" : "text-neutral-400"}
                           `}>
                             {String(index + 1).padStart(2, '0')}
                           </span>
-                          <div className={`w-px h-5 ${isActive ? "bg-black" : "bg-neutral-700"}`} />
+                          <div className={`w-px h-5 ${isActive ? "bg-black" : "bg-neutral-500"}`} />
                           <span className="text-lg font-medium">{link.label}</span>
                         </NavLink>
                       </motion.li>

@@ -117,7 +117,7 @@ const Footer = () => {
         </div>
 
         {/* --- Bottom Section: Copyright --- */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-neutral-900 text-xs font-mono text-neutral-600">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-neutral-900 text-xs font-mono text-neutral-400">
           <p>
             &copy; {new Date().getFullYear()} Shubham Maity. All Rights Reserved.
           </p>

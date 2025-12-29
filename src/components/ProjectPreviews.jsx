@@ -85,7 +85,7 @@ const ProjectScreenshots = ({ images = [], imageDetails = [], projectTitle = "" 
           >
             {/* Section Number & Title */}
             <div className="flex items-baseline gap-4 mb-6">
-              <span className="text-xs font-mono text-neutral-600 tabular-nums">
+              <span className="text-xs font-mono text-neutral-400 tabular-nums">
                 {String(idx + 1).padStart(2, '0')}
               </span>
               {section.title && (
@@ -115,7 +115,7 @@ const ProjectScreenshots = ({ images = [], imageDetails = [], projectTitle = "" 
                   <ul className="space-y-4">
                     {section.features.map((feature, featureIdx) => (
                       <li key={featureIdx} className="flex gap-4 items-start group/item">
-                        <span className="text-neutral-700 font-mono text-sm mt-1">
+                        <span className="text-neutral-500 font-mono text-sm mt-1">
                           {String(featureIdx + 1).padStart(2, '0')}
                         </span>
                         <span className="text-neutral-300 group-hover/item:text-white transition-colors">
@@ -202,17 +202,17 @@ export default function ProjectShowcase() {
           {/* Metadata Row */}
           <div className="flex flex-wrap gap-y-4 gap-x-12 text-sm font-mono text-neutral-400 uppercase tracking-wide">
             <div>
-              <span className="text-neutral-600 block text-xs mb-1">Role/Subtitle</span>
+              <span className="text-neutral-400 block text-xs mb-1">Role/Subtitle</span>
               {project.subtitle}
             </div>
             {project.location && (
               <div>
-                <span className="text-neutral-600 block text-xs mb-1">Location</span>
+                <span className="text-neutral-400 block text-xs mb-1">Location</span>
                 {project.location}
               </div>
             )}
             <div>
-              <span className="text-neutral-600 block text-xs mb-1">Tech Stack</span>
+              <span className="text-neutral-400 block text-xs mb-1">Tech Stack</span>
               <div className="flex flex-wrap gap-2">
                 {project.stack.slice(0, 15).map((t, i) => <span key={i}>{t}{i < project.stack.length - 1 ? ',' : ''}</span>)}
                 {project.stack.length > 15 && <span>& +{project.stack.length - 15}</span>}
@@ -254,7 +254,7 @@ export default function ProjectShowcase() {
             <ul className="space-y-4">
               {project.features?.map((feature, idx) => (
                 <li key={idx} className="flex gap-4 items-start group">
-                  <span className="text-neutral-700 font-mono text-sm mt-1">0{idx + 1}</span>
+                  <span className="text-neutral-500 font-mono text-sm mt-1">0{idx + 1}</span>
                   <span className="text-neutral-300 group-hover:text-white transition-colors">
                     {feature}
                   </span>
@@ -278,7 +278,7 @@ export default function ProjectShowcase() {
         <div className="border-t border-neutral-800 pt-12 flex flex-col md:flex-row justify-between gap-8">
           {prevProject ? (
             <Link to={`/projects/${prevProject.id}`} className="group flex-1">
-              <span className="text-xs font-mono text-neutral-600 mb-2 block uppercase">Previous</span>
+              <span className="text-xs font-mono text-neutral-400 mb-2 block uppercase">Previous</span>
               <div className="flex items-center gap-4 text-neutral-400 group-hover:text-white transition-colors">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:-translate-x-2 transition-transform"><path d="M19 12H5M5 12L12 19M5 12L12 5" /></svg>
                 <span className="text-2xl md:text-3xl font-bold">{prevProject.title}</span>
@@ -288,7 +288,7 @@ export default function ProjectShowcase() {
 
           {nextProject ? (
             <Link to={`/projects/${nextProject.id}`} className="group flex-1 text-right">
-              <span className="text-xs font-mono text-neutral-600 mb-2 block uppercase">Next Project</span>
+              <span className="text-xs font-mono text-neutral-400 mb-2 block uppercase">Next Project</span>
               <div className="flex items-center justify-end gap-4 text-neutral-400 group-hover:text-white transition-colors">
                 <span className="text-2xl md:text-3xl font-bold">{nextProject.title}</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-2 transition-transform"><path d="M5 12H19M19 12L12 5M19 12L12 19" /></svg>
