@@ -121,9 +121,9 @@ const Footer = () => {
           <p>
             &copy; {new Date().getFullYear()} Shubham Maity. All Rights Reserved.
           </p>
-          <p className="mt-2 md:mt-0">
+          {/* <p className="mt-2 md:mt-0">
             Built with React & Tailwind.
-          </p>
+          </p> */}
         </div>
 
       </div>

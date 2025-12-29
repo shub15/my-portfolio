@@ -30,33 +30,41 @@ const Projects = () => {
               to={`/projects/${project.id}`}
               className="group block border-b border-neutral-800 hover:border-neutral-600 transition-colors duration-500"
             >
-              <div className="py-10 md:py-14 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-neutral-900/20 transition-all duration-500 px-2 relative overflow-hidden">
+              <div className="py-10 md:py-2 flex flex-col md:flex-row md:items-center gap-6 hover:bg-neutral-900/20 transition-all duration-500 px-2 relative overflow-hidden">
 
                 {/* Decorative background hover effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/0 via-neutral-900/40 to-neutral-900/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none" />
 
-                {/* Project Preview Image - Appears on Hover */}
-                <div className="absolute right-0 top-0 bottom-0 w-0 md:w-80 lg:w-96 opacity-0 group-hover:opacity-100 group-hover:w-80 lg:group-hover:w-96 transition-all duration-500 overflow-hidden pointer-events-none">
-                  <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
+                {/* Project Preview Image - Before Title */}
+                <div className="relative w-full md:w-72 aspect-[16/9] overflow-hidden rounded-sm flex-shrink-0">
                   <img
                     src={project.img}
                     alt={project.title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    className="w-full h-full object-cover opacity-80 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700"
                   />
                 </div>
 
-                {/* Left Side: Number & Title */}
-                <div className="flex items-baseline gap-6 md:w-2/3 z-10">
+                {/* Project Info */}
+                <div className="flex items-baseline gap-6 flex-1 z-10">
                   <span className="text-neutral-500 font-mono text-sm hidden md:block group-hover:text-neutral-400 transition-colors">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-3xl md:text-5xl lg:text-5xl font-bold text-neutral-300 group-hover:text-white group-hover:translate-x-4 transition-all duration-300">
+                  <div className="flex flex-col gap-2 flex-1">
+                    <h3 className="text-3xl md:text-4xl lg:text-4xl font-bold text-neutral-300 group-hover:text-white transition-all duration-300">
                       {project.title}
                     </h3>
-                    <p className="text-sm md:text-base text-neutral-500 group-hover:text-neutral-400 transition-colors max-w-2xl">
+                    <p className="text-sm md:text-base text-neutral-500 group-hover:text-neutral-400 transition-colors">
                       {project.subtitle}
                     </p>
+
+                    {/* Tech Stack */}
+                    {/* <div className="flex flex-wrap gap-2 mt-2">
+                      {project.stack.slice(0, 4).map((tech, i) => (
+                        <span key={i} className="text-xs font-mono text-neutral-500 uppercase tracking-wider">
+                          {tech}
+                        </span>
+                      ))}
+                    </div> */}
                   </div>
                 </div>
 

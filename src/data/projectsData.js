@@ -12,6 +12,25 @@ import flagr7 from "../assets/flagr/flagr (7).png";
 import flagr8 from "../assets/flagr/flagr (8).png";
 import blockchainImage from "../assets/blockchain/blockchain (1).png";
 import blockchainImage2 from "../assets/blockchain/blockchain (2).png";
+import vitalquest1 from "../assets/vitalquest/vitalquest (1).jpg";
+import vitalquest2 from "../assets/vitalquest/vitalquest (2).jpg";
+import vitalquest3 from "../assets/vitalquest/vitalquest (3).jpg";
+import vitalquest4 from "../assets/vitalquest/vitalquest (4).jpg";
+import vitalquest5 from "../assets/vitalquest/vitalquest (5).jpg";
+import vitalquest6 from "../assets/vitalquest/vitalquest (6).jpg";
+import smartAgriculture from "../assets/smart_agriculture/smart_agri (1).png";
+import paisaflow1 from "../assets/paisaflow/AI Financial Coaching App (1).png";
+import paisaflow2 from "../assets/paisaflow/AI Financial Coaching App (2).png";
+import paisaflow3 from "../assets/paisaflow/AI Financial Coaching App (3).png";
+import paisaflow4 from "../assets/paisaflow/AI Financial Coaching App (4).png";
+import paisaflow5 from "../assets/paisaflow/AI Financial Coaching App (5).png";
+import paisaflow6 from "../assets/paisaflow/AI Financial Coaching App (6).png";
+import paisaflow7 from "../assets/paisaflow/AI Financial Coaching App (7).png";
+import paisaflow8 from "../assets/paisaflow/AI Financial Coaching App (8).png";
+import paisaflow9 from "../assets/paisaflow/AI Financial Coaching App (9).png";
+import paisaflow10 from "../assets/paisaflow/AI Financial Coaching App (10).png";
+import paisaflow11 from "../assets/paisaflow/AI Financial Coaching App (11).png";
+import paisaflow12 from "../assets/paisaflow/AI Financial Coaching App (12).png";
 // TODO: Import images for new projects below
 // import restroImage from "../assets/restro.png";
 // import phishingImage from "../assets/phishing.png";
@@ -23,7 +42,7 @@ export const projectsData = [
     subtitle: "Multi-Agent System for Contract Analysis",
     description: "An AI-powered legal advisor that uses a multi-agent system (Skeptic, Strategist, Auditor) with RAG-enhanced LLM councils to analyze employment contracts against Indian Labour Law. It identifies critical risks, missing clauses, and negotiable terms, providing a safety score with actionable recommendations and generating contextually-refined contracts.",
     link: "https://github.com/shub15/flagr",
-    img: flagr1,
+    img: flagr4,
     images: [flagr1, flagr2, flagr3, flagr4, flagr5, flagr6, flagr7, flagr8],
     imageDetails: [
       {
@@ -140,18 +159,74 @@ export const projectsData = [
     subtitle: "Gamified Health & Wellness App",
     description: "A mobile application that transforms healthy habits into an engaging RPG experience. Track daily activities like walking, meditating, and hydration while earning XP to level up your personalized character. Built with React Native and gamification mechanics to make wellness fun and sustainable.",
     link: "https://github.com/shub15/vitalquest",
-    img: "https://via.placeholder.com/600x400?text=VitalQuest",
-    images: ["https://via.placeholder.com/600x400?text=VitalQuest"],
+    img: vitalquest1,
+    images: [vitalquest1, vitalquest2, vitalquest3, vitalquest4, vitalquest5, vitalquest6],
+    aspectRatio: "9/16",
     imageDetails: [
       {
-        title: "Gamified Wellness Tracking",
-        description: "Transform daily health activities into quests and earn XP for your RPG character. Track steps, meditation, water intake, and more while progressing through levels.",
-        images: ["https://via.placeholder.com/600x400?text=VitalQuest"],
+        title: "Home Dashboard",
+        description: "Main quest dashboard displaying daily health activities, XP progress, and active quests. Track your wellness journey with an intuitive RPG-style interface.",
+        images: [vitalquest1],
         features: [
-          "Quest-based activity tracking",
-          "Character progression system",
-          "XP and leveling mechanics",
-          "Daily habit streaks"
+          "Daily quest overview",
+          "XP progress tracking",
+          "Active health activities",
+          "Character level display"
+        ]
+      },
+      {
+        title: "User Profile & Stats",
+        description: "Personalized profile showcasing your wellness journey, character stats, achievements earned, and overall progress metrics.",
+        images: [vitalquest2],
+        features: [
+          "Character statistics",
+          "Achievement showcase",
+          "Progress history",
+          "Personal wellness metrics"
+        ]
+      },
+      {
+        title: "Character Classes",
+        description: "Choose from different character classes, each with unique abilities and progression paths. Customize your wellness journey based on your preferred playstyle.",
+        images: [vitalquest3],
+        features: [
+          "Multiple character classes",
+          "Unique class abilities",
+          "Class-specific progression",
+          "Visual character customization"
+        ]
+      },
+      {
+        title: "Achievements & Trophies",
+        description: "Unlock achievements and trophies as you complete wellness milestones. Celebrate your health victories with a comprehensive trophy system.",
+        images: [vitalquest4],
+        features: [
+          "Achievement unlocking system",
+          "Trophy collection",
+          "Milestone celebrations",
+          "Progress badges"
+        ]
+      },
+      {
+        title: "Community Feed",
+        description: "Share your wellness journey with the community. View posts from other users, get inspired, and stay motivated through social engagement.",
+        images: [vitalquest5],
+        features: [
+          "Community post feed",
+          "Social engagement",
+          "Motivational content",
+          "User interactions"
+        ]
+      },
+      {
+        title: "Post Upload",
+        description: "Share your achievements and wellness milestones with the community. Upload photos, add captions, and inspire others on their health journey.",
+        images: [vitalquest6],
+        features: [
+          "Photo upload",
+          "Caption creation",
+          "Achievement sharing",
+          "Community posting"
         ]
       },
     ],
@@ -171,18 +246,74 @@ export const projectsData = [
     subtitle: "SMS-Based Expense Tracker",
     description: "An intelligent expense tracking system that automatically analyzes SMS messages from banks to categorize transactions, track spending patterns, and provide financial insights. Uses Python backend with Celery for asynchronous processing and MongoDB for data storage.",
     link: "https://github.com/shub15/paisaflow",
-    img: "https://via.placeholder.com/600x400?text=PaisaFlow",
-    images: ["https://via.placeholder.com/600x400?text=PaisaFlow"],
+    img: paisaflow1,
+    images: [paisaflow1, paisaflow2, paisaflow3, paisaflow4, paisaflow5, paisaflow6, paisaflow7, paisaflow8, paisaflow9, paisaflow10, paisaflow11, paisaflow12],
+    aspectRatio: "9/16",
     imageDetails: [
       {
-        title: "Automated Transaction Analysis",
-        description: "Automatically parse and categorize bank SMS messages to track income and expenses without manual entry. Get insights into spending patterns and financial trends.",
-        images: ["https://via.placeholder.com/600x400?text=PaisaFlow"],
+        title: "Dashboard Overview",
+        description: "Main dashboard providing a comprehensive view of your financial health with real-time balance tracking, recent transactions, and quick access to key features.",
+        images: [paisaflow1],
         features: [
-          "SMS parsing automation",
-          "Transaction categorization",
-          "Spending analytics",
-          "Income vs expense tracking"
+          "Real-time balance display",
+          "Recent transaction feed",
+          "Quick action buttons",
+          "Financial health score"
+        ]
+      },
+      {
+        title: "Transaction Analysis",
+        description: "Detailed transaction list with automatic categorization from SMS parsing. View all your income and expenses with smart filtering and search capabilities.",
+        images: [paisaflow2, paisaflow3],
+        features: [
+          "Automatic SMS parsing",
+          "Smart categorization",
+          "Transaction filtering",
+          "Search functionality"
+        ]
+      },
+      {
+        title: "AI Financial Coaching",
+        description: "Personalized AI-powered financial advice and insights based on your spending patterns. Get actionable recommendations to improve your financial health.",
+        images: [paisaflow4, paisaflow5],
+        features: [
+          "AI-powered insights",
+          "Personalized recommendations",
+          "Spending pattern analysis",
+          "Financial tips"
+        ]
+      },
+      {
+        title: "Spending Insights & Analytics",
+        description: "Visual analytics showing spending trends, category breakdowns, and monthly comparisons. Understand where your money goes with interactive charts.",
+        images: [paisaflow6, paisaflow7, paisaflow8],
+        features: [
+          "Category-wise breakdown",
+          "Trend visualization",
+          "Monthly comparisons",
+          "Interactive charts"
+        ]
+      },
+      {
+        title: "Category Management",
+        description: "Customize and manage expense categories to match your lifestyle. Set budgets for each category and track your spending against limits.",
+        images: [paisaflow9, paisaflow10],
+        features: [
+          "Custom categories",
+          "Budget setting",
+          "Category-wise limits",
+          "Spending alerts"
+        ]
+      },
+      {
+        title: "Financial Goals & Savings",
+        description: "Set and track financial goals with progress monitoring. Plan your savings and get insights on how to achieve your targets faster.",
+        images: [paisaflow11, paisaflow12],
+        features: [
+          "Goal setting",
+          "Progress tracking",
+          "Savings recommendations",
+          "Achievement milestones"
         ]
       },
     ],
@@ -276,7 +407,7 @@ export const projectsData = [
     title: "RestroStats",
     subtitle: "SaaS Business Analytics Platform",
     description: "Built a SaaS platform providing actionable insights from payment transactions to help businesses increase sales revenue. Delivers daily and monthly reports on peak hours analysis, customer purchasing patterns, and sales forecasting.",
-    link: "https://github.com/shub15",
+    link: "https://github.com/shub15/restrostats",
     img: "https://via.placeholder.com/600x400?text=RestroStats",
     images: ["https://via.placeholder.com/600x400?text=RestroStats"],
     imageDetails: [
@@ -308,7 +439,7 @@ export const projectsData = [
     subtitle: "Analyzed 100k+ SMS records",
     description: "Analyzed 100,000+ daily SMS data entries to extract financial information related to credit & debit transactions, loans, EMI amounts, and user spending & earning trends. Created during the Finathon hackathon to showcase financial literacy potential.",
     link: "https://github.com/shub15/sms_data_analysis",
-    img: "https://media.licdn.com/dms/image/v2/D4D22AQHmXcTFixMFRA/feedshare-shrink_2048_1536/B4DZUOq32FHkAo-/0/1739707875836?e=1756944000&v=beta&t=gkrW0uQ2JKp1Qn99SZhMEBvvLGwI48KpWZPEMLl7sik",
+    img: smsPresentation,
     images: [smsCertificate, smsPresentation],
     imageDetails: [
       {
@@ -349,7 +480,7 @@ export const projectsData = [
     title: "Phishing URL Detection",
     subtitle: "ML-Powered Browser Extension",
     description: "Developed a browser extension backed by a Flask API to detect phishing URLs. Achieved 95% accuracy in identifying malicious links using Machine Learning techniques.",
-    link: "https://github.com/shub15",
+    link: "https://github.com/shub15/phishing-url-detection",
     img: "https://via.placeholder.com/600x400?text=Phishing+Detection",
     images: ["https://via.placeholder.com/600x400?text=Phishing+Detection"],
     imageDetails: [
@@ -443,13 +574,13 @@ export const projectsData = [
     subtitle: "IoT-Enabled Farming Solution",
     description: "An intelligent agriculture system leveraging IoT sensors and automation to optimize farming practices. Monitors soil moisture, temperature, humidity, and automates irrigation to improve crop yield and resource efficiency.",
     link: "https://github.com/shub15/smart-agriculture",
-    img: "https://via.placeholder.com/600x400?text=Smart+Agriculture",
-    images: ["https://via.placeholder.com/600x400?text=Smart+Agriculture"],
+    img: smartAgriculture,
+    images: [smartAgriculture],
     imageDetails: [
       {
         title: "Automated Farming Intelligence",
         description: "IoT-based system that monitors environmental conditions and automates irrigation. Optimizes water usage and improves crop health through data-driven decisions.",
-        images: ["https://via.placeholder.com/600x400?text=Smart+Agriculture"],
+        images: [smartAgriculture],
         features: [
           "Soil moisture monitoring",
           "Automated irrigation",

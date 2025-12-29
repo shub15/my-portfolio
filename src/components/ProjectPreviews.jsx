@@ -6,7 +6,7 @@ import { projectsData } from "../data/projectsData";
 // --- Components ---
 
 // 1. Clean Minimal Slider (Original Design) - for sections with multiple images
-const SectionImageSlider = ({ images = [], title = "" }) => {
+const SectionImageSlider = ({ images = [], title = "", aspectRatio = "16/9" }) => {
   const [current, setCurrent] = useState(0);
 
   if (!images || images.length === 0) return null;
@@ -14,25 +14,28 @@ const SectionImageSlider = ({ images = [], title = "" }) => {
   const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
   const prevSlide = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
 
+  // Check if it's a portrait image (9:16 or similar)
+  const isPortrait = aspectRatio === "9/16" || aspectRatio.startsWith("9/");
+
   // If only one image, show it without slider controls
   if (images.length === 1) {
     return (
-      <div className="relative w-full aspect-[16/9] bg-neutral-900 overflow-hidden rounded-sm">
+      <div className={`relative w-full ${isPortrait ? 'max-w-xs mx-auto' : ''} aspect-[${aspectRatio}] bg-neutral-900 overflow-hidden rounded-sm`}>
         <img
           src={images[0]}
           alt={title || "Project Screenshot"}
-          className="w-full h-full object-cover opacity-90"
+          className={`w-full h-full ${isPortrait ? 'object-contain' : 'object-cover'} opacity-90`}
         />
       </div>
     );
   }
 
   return (
-    <div className="relative w-full aspect-[16/9] bg-neutral-900 group overflow-hidden rounded-sm">
+    <div className={`relative w-full ${isPortrait ? 'max-w-xs mx-auto' : ''} aspect-[${aspectRatio}] bg-neutral-900 group overflow-hidden rounded-sm`}>
       <img
         src={images[current]}
         alt={`${title} - Slide ${current + 1}`}
-        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+        className={`w-full h-full ${isPortrait ? 'object-contain' : 'object-cover'} opacity-90 group-hover:opacity-100 transition-opacity duration-500`}
       />
 
       {/* Navigation - Only visible on hover */}
@@ -59,7 +62,7 @@ const SectionImageSlider = ({ images = [], title = "" }) => {
 };
 
 // 2. Detailed Screenshot Showcase
-const ProjectScreenshots = ({ images = [], imageDetails = [], projectTitle = "" }) => {
+const ProjectScreenshots = ({ images = [], imageDetails = [], projectTitle = "", aspectRatio = "16/9" }) => {
   // If imageDetails has images arrays (new structure), use it; otherwise fall back to old structure
   const sections = imageDetails && imageDetails.length > 0 && imageDetails[0].images
     ? imageDetails // New structure: each detail has its own images array
@@ -103,6 +106,7 @@ const ProjectScreenshots = ({ images = [], imageDetails = [], projectTitle = "" 
                 <SectionImageSlider
                   images={section.images}
                   title={section.title || `${projectTitle} Section ${idx + 1}`}
+                  aspectRatio={aspectRatio}
                 />
               </div>
 
@@ -149,6 +153,7 @@ const ProjectScreenshots = ({ images = [], imageDetails = [], projectTitle = "" 
 // 2. Main Page
 export default function ProjectShowcase() {
   const { id } = useParams();
+  const [isPinned, setIsPinned] = React.useState(false);
 
   // Data Logic
   const project = projectsData.find((p) => p.id === id);
@@ -185,6 +190,59 @@ export default function ProjectShowcase() {
           </div>
         </Link>
       </header>
+
+      {/* --- Project Navigation Sidebar --- */}
+      <aside className={`hidden xl:block fixed right-0 top-1/2 -translate-y-1/2 z-40 max-h-[80vh] overflow-y-auto ${isPinned ? '' : 'group/sidebar'}`}>
+        <div className={`bg-neutral-900/80 backdrop-blur-sm border border-neutral-800 rounded-lg p-4 transition-all duration-300 ${isPinned ? 'w-40' : 'w-16 group-hover/sidebar:w-64'
+          }`}>
+          {/* Pin Button */}
+          <button
+            onClick={() => setIsPinned(!isPinned)}
+            className={`absolute top-2 right-2 p-1.5 rounded transition-all duration-200 ${isPinned ? 'opacity-100' : 'opacity-0 group-hover/sidebar:opacity-100'
+              } hover:bg-neutral-800`}
+            title={isPinned ? 'Unpin sidebar' : 'Pin sidebar'}
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className={`transition-transform duration-200 ${isPinned ? 'rotate-45 text-white' : 'text-neutral-500'
+                }`}
+            >
+              <path d="M12 17v5M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z" />
+            </svg>
+          </button>
+
+          <div className={`text-xs font-mono text-neutral-500 uppercase tracking-wider mb-4 px-2 transition-opacity duration-300 whitespace-nowrap overflow-hidden ${isPinned ? 'opacity-100' : 'opacity-0 group-hover/sidebar:opacity-100'
+            }`}>
+            Projects ({projectsData.length})
+          </div>
+          <nav className="space-y-1">
+            {projectsData.map((proj, idx) => (
+              <Link
+                key={proj.id}
+                to={`/projects/${proj.id}`}
+                className={`group/item flex items-center gap-3 px-2 py-2 rounded transition-all duration-200 ${proj.id === project.id
+                  ? 'bg-white text-black'
+                  : 'hover:bg-neutral-800 text-neutral-400 hover:text-white'
+                  }`}
+              >
+                <span className={`text-xs font-mono flex-shrink-0 ${proj.id === project.id ? 'text-black' : 'text-neutral-600 group-hover/item:text-neutral-400'
+                  }`}>
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+                <span className={`text-xs leading-tight flex-1 transition-opacity duration-300 whitespace-nowrap overflow-hidden ${isPinned ? 'opacity-100' : 'opacity-0 group-hover/sidebar:opacity-100'
+                  }`}>
+                  {proj.title}
+                </span>
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </aside>
 
       <main className="pt-32 pb-20 px-6 md:px-12 lg:px-24 max-w-[1600px] mx-auto">
 
@@ -271,6 +329,7 @@ export default function ProjectShowcase() {
             images={project.images ?? [project.img]}
             imageDetails={project.imageDetails}
             projectTitle={project.title}
+            aspectRatio={project.aspectRatio}
           />
         </div>
 

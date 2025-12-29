@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import somaiyaLogo from "../assets/Logos/somaiya.png";
+import rjcLogo from "../assets/Logos/rjc.png";
 
 const Education = () => {
     const education = [
@@ -7,6 +9,7 @@ const Education = () => {
             id: 1,
             degree: "Bachelor of Technology in Information Technology",
             institution: "K. J. Somaiya Institute of Technology",
+            logo: somaiyaLogo,
             location: "Mumbai, India",
             period: "Aug 2023 - June 2027",
             cgpa: "9.29 CGPA",
@@ -17,7 +20,21 @@ const Education = () => {
                 "Focused on AI/ML, Cloud Computing, and System Design",
                 "Participated in national-level robotics competitions"
             ]
-        }
+        },
+        // {
+        //     id: 2,
+        //     degree: "HSC in Science",
+        //     institution: "Ramniranjan Jhunjhunwala College",
+        //     logo: rjcLogo,
+        //     location: "Mumbai, India",
+        //     type: "Completed",
+        //     highlights: [
+        //         "Specialized in Full-Stack Development and Mobile Applications",
+        //         "Active member of Robocon KJSIT and IET Committee",
+        //         "Focused on AI/ML, Cloud Computing, and System Design",
+        //         "Participated in national-level robotics competitions"
+        //     ]
+        // }
     ];
 
     return (
@@ -60,9 +77,16 @@ const Education = () => {
                             className="group relative"
                         >
                             <div className="flex gap-8 md:gap-12">
-                                {/* Timeline Dot */}
-                                <div className="flex-shrink-0">
-                                    <div className="w-3 h-3 rounded-full bg-white group-hover:scale-150 transition-transform duration-300" />
+                                {/* Timeline Dot with Logo */}
+                                <div className="flex-shrink-0 flex flex-col items-center gap-4">
+                                    {/* <div className="w-3 h-3 rounded-full bg-white group-hover:scale-150 transition-transform duration-300" /> */}
+                                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/5 border border-neutral-800 p-2 flex items-center justify-center group-hover:border-neutral-600 transition-colors">
+                                        <img
+                                            src={edu.logo}
+                                            alt="K. J. Somaiya Institute of Technology"
+                                            className="w-full h-full object-contain bg-white rounded-full"
+                                        />
+                                    </div>
                                 </div>
 
                                 {/* Content */}
@@ -84,7 +108,7 @@ const Education = () => {
                                         </div>
                                         <div className="flex flex-wrap items-center gap-3 text-neutral-400">
                                             <span className="text-sm font-mono">{edu.period}</span>
-                                            <span className="text-neutral-500">•</span>
+                                            {edu.cgpa && <span className="text-neutral-500">•</span>}
                                             <span className="text-sm font-mono font-medium text-white">{edu.cgpa}</span>
                                         </div>
                                     </div>
