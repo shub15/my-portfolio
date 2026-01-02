@@ -71,7 +71,7 @@ import yazarModal2 from "../assets/yazar_app/yazar_app_modal (16).jpg";
 export const projectsData = [
   {
     id: "yazar",
-    visible: false,
+    visible: true,
     title: "Yazar: Screenplay Reading Platform",
     subtitle: "Led end-to-end app development during my internship",
     description: "Developed an application during my internship featuring secure authentication with OAuth (Supabase), SQLite database, UI/UX designs, payment gateway, and API data handling",
