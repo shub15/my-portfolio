@@ -31,11 +31,168 @@ import paisaflow9 from "../assets/paisaflow/AI Financial Coaching App (9).png";
 import paisaflow10 from "../assets/paisaflow/AI Financial Coaching App (10).png";
 import paisaflow11 from "../assets/paisaflow/AI Financial Coaching App (11).png";
 import paisaflow12 from "../assets/paisaflow/AI Financial Coaching App (12).png";
+import yazarSignIn1 from "../assets/yazar_app/yazar_app_sign_in (23).jpg";
+import yazarSignIn2 from "../assets/yazar_app/yazar_app_sign_in (24).jpg";
+import yazarSignIn3 from "../assets/yazar_app/yazar_app_sign_in (25).jpg";
+import yazarSignIn4 from "../assets/yazar_app/yazar_app_sign_in (26).jpg";
+import yazarHome1 from "../assets/yazar_app/yazar_app_home (5).jpg";
+import yazarHome2 from "../assets/yazar_app/yazar_app_home (6).jpg";
+import yazarHome3 from "../assets/yazar_app/yazar_app_home (7).jpg";
+import yazarHome4 from "../assets/yazar_app/yazar_app_home (8).jpg";
+import yazarLibrary1 from "../assets/yazar_app/yazar_app_library (20).jpg";
+import yazarLibrary2 from "../assets/yazar_app/yazar_app_library (21).jpg";
+import yazarLibrary3 from "../assets/yazar_app/yazar_app_library (22).jpg";
+import yazarReader1 from "../assets/yazar_app/yazar_app_reader (7).jpg";
+import yazarReader2 from "../assets/yazar_app/yazar_app_reader (8).jpg";
+import yazarReader3 from "../assets/yazar_app/yazar_app_reader (9).jpg";
+import yazarReader4 from "../assets/yazar_app/yazar_app_reader (10).jpg";
+import yazarReader5 from "../assets/yazar_app/yazar_app_reader (11).jpg";
+import yazarReader6 from "../assets/yazar_app/yazar_app_reader (12).jpg";
+import yazarReader7 from "../assets/yazar_app/yazar_app_reader (13).jpg";
+import yazarReader8 from "../assets/yazar_app/yazar_app_reader (14).jpg";
+import yazarReader9 from "../assets/yazar_app/yazar_app_reader (15).jpg";
+import yazarReader10 from "../assets/yazar_app/yazar_app_reader (16).jpg";
+import yazarUpload1 from "../assets/yazar_app/yazar_app_upload (19).jpg";
+import yazarUpload2 from "../assets/yazar_app/yazar_app_upload (20).jpg";
+import yazarSupports1 from "../assets/yazar_app/yazar_app_supports (13).jpg";
+import yazarSupports2 from "../assets/yazar_app/yazar_app_supports (14).jpg";
+import yazarSupports3 from "../assets/yazar_app/yazar_app_supports (15).jpg";
+import yazarPlans1 from "../assets/yazar_app/yazar_app_plans (17).jpg";
+import yazarPlans2 from "../assets/yazar_app/yazar_app_plans (18).jpg";
+import yazarSettings1 from "../assets/yazar_app/yazar_app_settings (18).jpg";
+import yazarSettings2 from "../assets/yazar_app/yazar_app_settings (19).jpg";
+import yazarProfile from "../assets/yazar_app/yazar_app_profile_edit (16).jpg";
+import yazarModal1 from "../assets/yazar_app/yazar_app_modal (15).jpg";
+import yazarModal2 from "../assets/yazar_app/yazar_app_modal (16).jpg";
 // TODO: Import images for new projects below
 // import restroImage from "../assets/restro.png";
 // import phishingImage from "../assets/phishing.png";
 
 export const projectsData = [
+  {
+    id: "yazar",
+    visible: false,
+    title: "Yazar: Screenplay Reading Platform",
+    subtitle: "Led end-to-end app development during my internship",
+    description: "Developed an application during my internship featuring secure authentication with OAuth (Supabase), SQLite database, UI/UX designs, payment gateway, and API data handling",
+    // link: "https://github.com/shub15/yazar",
+    img: yazarHome1,
+    images: [yazarSignIn1, yazarSignIn2, yazarSignIn3, yazarSignIn4, yazarHome1, yazarHome2, yazarHome3, yazarHome4, yazarLibrary1, yazarLibrary2, yazarLibrary3, yazarReader1, yazarReader2, yazarReader3, yazarReader4, yazarReader5, yazarReader6, yazarReader7, yazarReader8, yazarReader9, yazarReader10, yazarUpload1, yazarUpload2, yazarSupports1, yazarSupports2, yazarSupports3, yazarPlans1, yazarPlans2, yazarSettings1, yazarSettings2, yazarProfile, yazarModal1, yazarModal2],
+    aspectRatio: "9/16",
+    imageDetails: [
+      {
+        title: "Authentication & Onboarding",
+        description: "Secure sign-in and sign-up flow with email/password authentication. Clean, professional interface designed for industry professionals.",
+        images: [yazarSignIn1, yazarSignIn2, yazarSignIn3, yazarSignIn4],
+        features: [
+          "Email/password authentication",
+          "Secure user management",
+          "Professional onboarding",
+        ]
+      },
+      {
+        title: "Home Dashboard",
+        description: "Personalized dashboard showcasing recently accessed scripts, reading progress, and quick access to your script library. Features AI-powered recommendations and reading statistics.",
+        images: [yazarHome1, yazarHome2, yazarHome3, yazarHome4],
+        features: [
+          "Recent scripts overview",
+          "Reading progress tracking",
+          "AI-powered recommendations",
+          "Quick access navigation"
+        ]
+      },
+      {
+        title: "Script Library Management",
+        description: "Comprehensive library view with advanced filtering, sorting, and search capabilities. Organize scripts by genre, status, or custom tags.",
+        images: [yazarLibrary1, yazarLibrary2, yazarLibrary3],
+        features: [
+          "Advanced search & filtering",
+          "Custom organization tags",
+          "Cloud synchronization",
+          "Batch operations"
+        ]
+      },
+      {
+        title: "Advanced Script Reader",
+        description: "Professional screenplay reader with customizable fonts, themes, and reading modes. Features include character highlighting, scene navigation, and AI-powered script analysis.",
+        images: [yazarReader1, yazarReader2, yazarReader3, yazarReader4, yazarReader5, yazarReader6, yazarReader7, yazarReader8, yazarReader9, yazarReader10],
+        features: [
+          "Customizable reading experience",
+          "Character highlighting",
+          "Scene-by-scene navigation",
+          "AI script analysis",
+          "Annotation support",
+          "Multiple theme options"
+        ]
+      },
+      {
+        title: "Script Upload & Processing",
+        description: "Upload screenplays in various formats (PDF, FDX, Fountain) with automatic parsing and formatting. AI-powered metadata extraction and script validation.",
+        images: [yazarUpload1, yazarUpload2],
+        features: [
+          "Multi-format support",
+          "Automatic script parsing",
+          "AI metadata extraction",
+          "Format validation"
+        ]
+      },
+      {
+        title: "Support & Help Center",
+        description: "Comprehensive support system with FAQs, tutorials, and direct support contact. Access guides for script formatting, app features, and troubleshooting.",
+        images: [yazarSupports1, yazarSupports2, yazarSupports3],
+        features: [
+          // "FAQ database",
+          // "Video tutorials",
+          "Support ticket",
+          // "Feature guides"
+        ]
+      },
+      {
+        title: "Subscription Plans",
+        description: "Flexible pricing tiers with free and premium options. Premium features include unlimited storage, AI analysis, and collaborative tools.",
+        images: [yazarPlans1, yazarPlans2],
+        features: [
+          "Free tier available",
+          "Premium AI features",
+          "Unlimited cloud storage",
+          "Collaborative tools"
+        ]
+      },
+      {
+        title: "Settings & Customization",
+        description: "Extensive customization options for reading preferences, notifications, privacy settings, and app behavior. Tailor the experience to your workflow.",
+        images: [yazarSettings1, yazarSettings2, yazarProfile],
+        features: [
+          "Reading preferences",
+          "Notification controls",
+          "Privacy settings",
+          "Profile management"
+        ]
+      },
+      {
+        title: "Interactive Modals & Features",
+        description: "Rich interactive elements including script details, character breakdowns, and contextual actions for enhanced script management.",
+        images: [yazarModal1, yazarModal2],
+        features: [
+          "Script detail views",
+          "Character breakdowns",
+          "Contextual actions",
+          "Quick edit options"
+        ]
+      },
+    ],
+    stack: ["React Native", "Zustand", "Supabase", "Firebase", "Push Notifications", "UI/UX Design"],
+    features: [
+      "AI-Powered Script Analysis",
+      "Multi-Format Script Support",
+      "Cloud Storage & Sync",
+      "Customizable Reading Experience",
+      "Character & Scene Navigation",
+      "Collaborative Tools",
+      "Cross-Platform Mobile App",
+    ],
+    featureHeading: "Professional Screenplay Reading & Management",
+  },
   {
     id: "flagr-ai",
     title: "Flagr: AI Legal Advisor",

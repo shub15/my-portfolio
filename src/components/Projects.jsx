@@ -24,7 +24,7 @@ const Projects = () => {
 
         {/* Project List */}
         <div className="flex flex-col border-t border-neutral-800">
-          {projectsData.map((project, index) => (
+          {projectsData.filter((project) => project.visible != false).map((project, index) => (
             <Link
               key={project.id}
               to={`/projects/${project.id}`}
